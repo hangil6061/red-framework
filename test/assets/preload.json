@@ -1,0 +1,180 @@
+{
+  "atlas": [],
+  "csv": [],
+  "data": [],
+  "font": [],
+  "image": [
+    {
+      "key": "background0",
+      "path": "test/assets/image/background0.png"
+    },
+    {
+      "key": "background1",
+      "path": "test/assets/image/background1.png"
+    },
+    {
+      "key": "blue_slime_fx0",
+      "path": "test/assets/image/blue_slime_fx/blue_slime_fx0.png"
+    },
+    {
+      "key": "blue_slime_fx1",
+      "path": "test/assets/image/blue_slime_fx/blue_slime_fx1.png"
+    },
+    {
+      "key": "blue_slime_fx2",
+      "path": "test/assets/image/blue_slime_fx/blue_slime_fx2.png"
+    },
+    {
+      "key": "blue_slime_fx3",
+      "path": "test/assets/image/blue_slime_fx/blue_slime_fx3.png"
+    },
+    {
+      "key": "deadline",
+      "path": "test/assets/image/deadline.png"
+    },
+    {
+      "key": "gold_ui",
+      "path": "test/assets/image/gold_ui.png"
+    },
+    {
+      "key": "hit_fx0_0",
+      "path": "test/assets/image/hit_fx0/hit_fx0_0.png"
+    },
+    {
+      "key": "hit_fx0_1",
+      "path": "test/assets/image/hit_fx0/hit_fx0_1.png"
+    },
+    {
+      "key": "hit_fx0_2",
+      "path": "test/assets/image/hit_fx0/hit_fx0_2.png"
+    },
+    {
+      "key": "hit_fx0_3",
+      "path": "test/assets/image/hit_fx0/hit_fx0_3.png"
+    },
+    {
+      "key": "hit_fx0_4",
+      "path": "test/assets/image/hit_fx0/hit_fx0_4.png"
+    },
+    {
+      "key": "hit_fx1_0",
+      "path": "test/assets/image/hit_fx1/hit_fx1_0.png"
+    },
+    {
+      "key": "hit_fx1_1",
+      "path": "test/assets/image/hit_fx1/hit_fx1_1.png"
+    },
+    {
+      "key": "hit_fx1_2",
+      "path": "test/assets/image/hit_fx1/hit_fx1_2.png"
+    },
+    {
+      "key": "hit_fx1_3",
+      "path": "test/assets/image/hit_fx1/hit_fx1_3.png"
+    },
+    {
+      "key": "hit_fx1_4",
+      "path": "test/assets/image/hit_fx1/hit_fx1_4.png"
+    },
+    {
+      "key": "hit_fx2_0",
+      "path": "test/assets/image/hit_fx2/hit_fx2_0.png"
+    },
+    {
+      "key": "hit_fx2_1",
+      "path": "test/assets/image/hit_fx2/hit_fx2_1.png"
+    },
+    {
+      "key": "hit_fx2_2",
+      "path": "test/assets/image/hit_fx2/hit_fx2_2.png"
+    },
+    {
+      "key": "hit_fx2_3",
+      "path": "test/assets/image/hit_fx2/hit_fx2_3.png"
+    },
+    {
+      "key": "hit_fx2_4",
+      "path": "test/assets/image/hit_fx2/hit_fx2_4.png"
+    },
+    {
+      "key": "knights",
+      "path": "test/assets/image/knights.png"
+    },
+    {
+      "key": "knights_badpaladin",
+      "path": "test/assets/image/knights_badpaladin.png"
+    },
+    {
+      "key": "knights_blue",
+      "path": "test/assets/image/knights_blue.png"
+    },
+    {
+      "key": "knights_devil",
+      "path": "test/assets/image/knights_devil.png"
+    },
+    {
+      "key": "knights_paladin",
+      "path": "test/assets/image/knights_paladin.png"
+    },
+    {
+      "key": "knights_red",
+      "path": "test/assets/image/knights_red.png"
+    },
+    {
+      "key": "knights_yellow",
+      "path": "test/assets/image/knights_yellow.png"
+    },
+    {
+      "key": "name_board",
+      "path": "test/assets/image/name_board.png"
+    },
+    {
+      "key": "orange_slime_fx0",
+      "path": "test/assets/image/orange_slime_fx/orange_slime_fx0.png"
+    },
+    {
+      "key": "orange_slime_fx1",
+      "path": "test/assets/image/orange_slime_fx/orange_slime_fx1.png"
+    },
+    {
+      "key": "orange_slime_fx2",
+      "path": "test/assets/image/orange_slime_fx/orange_slime_fx2.png"
+    },
+    {
+      "key": "orange_slime_fx3",
+      "path": "test/assets/image/orange_slime_fx/orange_slime_fx3.png"
+    },
+    {
+      "key": "play_button",
+      "path": "test/assets/image/play_button.png"
+    },
+    {
+      "key": "rampart0",
+      "path": "test/assets/image/rampart0.png"
+    },
+    {
+      "key": "shield_gold",
+      "path": "test/assets/image/shield_gold.png"
+    },
+    {
+      "key": "sprite0",
+      "path": "test/assets/image/sprite0.png"
+    },
+    {
+      "key": "turn_icon",
+      "path": "test/assets/image/turn_icon.png"
+    },
+    {
+      "key": "turn_icon2",
+      "path": "test/assets/image/turn_icon2.png"
+    }
+  ],
+  "json": [
+    {
+      "key": "scene",
+      "path": "test/assets/json/scene.json"
+    }
+  ],
+  "sound": [],
+  "spine": []
+}
