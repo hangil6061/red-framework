@@ -20,6 +20,7 @@ import ComponentManager from './core/componentManager';
 import ComponentBase from './core/componentBase';
 import Sprite from './core/component/sprite';
 import Script from './core/component/script';
+import Button from './core/component/button';
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
@@ -49,6 +50,7 @@ export {
     ComponentBase,
     Sprite,
     Script,
+    Button,
 
     KeyCode,
     Stack,
@@ -77,6 +79,7 @@ export default {
     ComponentBase,
     Sprite,
     Script,
+    Button,
 
     KeyCode,
     Stack,

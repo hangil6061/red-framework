@@ -129,7 +129,7 @@ class GameObject extends PIXI.Container {
             const componentData = components[i];
             const comp = this.addComponent( componentData.name ) as ComponentBase;
             if( comp ) {
-                comp.load( componentData, jsonData );
+                comp.load( componentData, tempData );
             }
         }
 
@@ -156,11 +156,12 @@ class GameObject extends PIXI.Container {
             comp.loadInit( jsonData.components[i], tempData );
         }
 
+        let count = 0;
         length = this.children.length;
         for( let i = 0; i < length; i++ ) {
             const child = this.children[ i ];
             if( child instanceof GameObject) {
-                child.loadInit( jsonData.children[i], tempData );
+                child.loadInit( jsonData.children[count++], tempData );
             }
         }
     }
@@ -169,10 +170,26 @@ class GameObject extends PIXI.Container {
         this.action.addAction( new Action( maxTime, actionCall, finishCall ) );
     }
 
-    public  waitCall(waitTime, call) {
+    public waitCall(waitTime, call) {
         this.addAction( waitTime,function (){}, call );
     }
 
+    public findGameObject( name ) {
+        if( this.name === name ) {
+            return this;
+        }
+
+        for( let i = 0; i < this.children.length; i++ ) {
+            if( this.children[i] instanceof GameObject) {
+                const child = this.children[i] as GameObject;
+                const go = child.findGameObject( name );
+                if( !go ) continue;
+                return go;
+            }
+        }
+
+        return null;
+    }
 }
 
 export default GameObject;

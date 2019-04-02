@@ -1,44 +1,54 @@
 import ComponentBase from "../componentBase";
 
 class Sprite extends ComponentBase {
-    public sprite : PIXI.Sprite = null;
+    private readonly _sprite : PIXI.Sprite = null;
 
     constructor( gameObject ) {
         super( gameObject );
-        this.sprite = new PIXI.Sprite();
-        this.sprite.anchor.set( 0.5 );
+        this._sprite = new PIXI.Sprite();
+        this._sprite.anchor.set( 0.5 );
 
         // this.sprite.transform = this.gameObject.transform;
         // this.game.stage.renderStage.addChild( this.sprite );
-        this.gameObject.addChild( this.sprite );
+        this.gameObject.addChild( this._sprite );
         this.activeUpdate();
     }
 
+    get sprite() : PIXI.Sprite {
+        return this._sprite;
+    }
+
     get color() {
-        return this.sprite.tint;
+        return this._sprite.tint;
     }
 
     set color( color : number ) {
-        this.sprite.tint = color;
+        this._sprite.tint = color;
+    }
+
+    set texture( tex : PIXI.Texture ) {
+        this._sprite.texture = tex;
     }
 
     setSprite( key : string ) {
-        this.sprite.texture = PIXI.Texture.fromImage( key );
+        this._sprite.texture = PIXI.Texture.fromImage( key );
     }
 
     dispose() {
-        this.sprite.texture = null;
+        this._sprite.texture = null;
         super.dispose();
     }
 
     activeUpdate() {
-        this.sprite.visible = this.getActive();
+        this._sprite.visible = this.getActive();
     }
 
     load( jsonData, tempData ) {
         super.load( jsonData, tempData );
 
         this.setSprite( jsonData.key );
+        this._sprite.anchor.set( jsonData.pivot.x, jsonData.pivot.y );
+        this.color = parseInt( '0x' + jsonData.color );
     }
 }
 

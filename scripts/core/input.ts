@@ -38,7 +38,6 @@ class Input {
 
         this._interactionManager.on('pointerdown', ( e : PIXI.interaction.InteractionEvent )=>{
             this._pointerState = _state.start;
-            console.log( e );
         });
 
         this._interactionManager.on('pointerup', ( e : PIXI.interaction.InteractionEvent )=>{

@@ -1,5 +1,7 @@
 import Sprite from './component/sprite';
 import Script from './component/script';
+import Button from './component/button';
+import Text from "./component/text";
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -14,6 +16,8 @@ class ComponentManager {
     private constructor() {
         this.addComponent( 'sprite', Sprite );
         this.addComponent( 'script', Script );
+        this.addComponent( 'button', Button );
+        this.addComponent( 'text', Text );
     }
 
     addComponent( name : string, construct : object ) {

@@ -12,6 +12,7 @@ class ComponentBase {
     public constructor( gameObject ) {
         this.gameObject = gameObject;
         this.game = this.gameObject.game;
+        this.awake();
     }
 
     public load( jsonData, tempData) {
@@ -19,6 +20,7 @@ class ComponentBase {
     }
     public loadInit( jsonData, tempData ) {}
 
+    public awake() {};
     public start() {};
     public dispose() {};
     public update( delta : number ) {};

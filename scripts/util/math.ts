@@ -23,6 +23,63 @@ class Mathf {
         return !isNaN( num );
     };
 
+    /**
+     *
+     * @param start {number}
+     * @param end {number}
+     * @param t {number} 0 ~ 1 사이값
+     * @returns {*}
+     */
+    public static lerp(start, end, t)
+    {
+        return start + (end - start) * t;
+    }
+
+    /**
+     *
+     * @param color1 {number} 0x000000 ~ 0xffffff
+     * @param color2 {number} 0x000000 ~ 0xffffff
+     * @param t {number} 0 ~ 1 사이값
+     * @returns {*}
+     * @constructor
+     */
+    public static lerpColor ( color1, color2, t ) {
+        const r1 = color1 >> 16;
+        const g1 = ( color1 >> 8 ) - ( r1 << 8 );
+        const b1 = ( color1 ) - ( r1 << 16 ) - ( g1 <<  8);
+
+        const r2 = color2 >> 16;
+        const g2 = ( color2 >> 8 ) - ( r2 << 8 );
+        const b2 = ( color2 ) - ( r2 << 16 ) - ( g2 <<  8);
+
+        const r = Mathf.lerp( r1, r2, t );
+        const g = Mathf.lerp( g1, g2, t );
+        const b = Mathf.lerp( b1, b2, t );
+
+        return Mathf.rgbToColor( r, g, b );
+    };
+
+    public static rgbToColor( r, g, b ) {
+        return (r << 16) + (g << 8) +  (b);
+    }
+
+    /**
+     *
+     * @param min {int}
+     * @param max {int}
+     * @returns {number}
+     * min 포함, max 미포함
+     */
+    public static randomInt (min, max)
+    {
+        return Math.floor( min + Math.random() * (max - min));
+    }
+
+    public static randomFloat (min, max)
+    {
+        return  min + Math.random() * (max - min);
+    }
+
 }
 
 export default Mathf;
