@@ -1,0 +1,74 @@
+class Stack {
+    private _arr = [];
+    private _length : number = 0;
+    private _size : number = 0;
+    private readonly _defaultSize : number = 0;
+
+    constructor( size : number = 100 ) {
+        this._size = size;
+        this._defaultSize = size;
+        this._arr.length = this._size;
+        this._length = 0;
+    }
+
+    public get legnth() {
+        return this._length;
+    }
+
+    public get arr() {
+        return this._arr;
+    }
+
+    public clear() {
+        for (let i = 0; i < this._length; i++){
+            this._arr[i] = undefined;
+        }
+        this._length = 0;
+    }
+
+    public push(item) {
+        if( this._length >= this._size )
+        {
+            this._arr.length += this._defaultSize;
+            this._size = this._arr.length;
+        }
+
+        this._arr[ this._length++ ] = item;
+    }
+
+    public pop () {
+        let item = this._arr[ --this._length ];
+        this._arr[ this._length ] = undefined;
+        return item;
+    }
+
+    public remove (item) {
+        const idx = this._arr.indexOf( item );
+        if( idx > -1 )
+        {
+            this.splice( idx, 1 );
+        }
+    }
+
+    public splice ( startIdx, removeCount ) {
+        const length = this._length;
+
+        if (startIdx >= length || removeCount <= 0) {
+            return;
+        }
+
+        removeCount = (startIdx + removeCount > length ? length - startIdx : removeCount);
+
+        let len = length - removeCount;
+
+        for (let i = startIdx; i < len; i++)
+        {
+            this._arr[i] = this._arr[i + removeCount];
+            this._arr[i + removeCount] = undefined;
+        }
+
+        this._length = len;
+    }
+}
+
+export default Stack;

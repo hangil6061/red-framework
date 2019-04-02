@@ -1,12 +1,15 @@
 import Game from "./game";
 import ComponentBase from "./componentBase";
 import ComponentManager from "./componentManager";
+import ActionCtrl from "./actionCtrl";
+import Action from './action';
 
 class GameObject extends PIXI.Container {
     public game : Game = null;
-    public components = {};
-    public componentArr : ComponentBase[] = [];
+    private components = {};
+    private componentArr : ComponentBase[] = [];
 
+    private action : ActionCtrl = new ActionCtrl();
     private _isActiveSelf : boolean = true;
 
     constructor( game ) {
@@ -42,6 +45,10 @@ class GameObject extends PIXI.Container {
             comp.activeUpdate();
         }
 
+        if( !this.getActive() ) {
+            this.action.clear();
+        }
+
         count = this.children.length;
         for( let i = 0; i < count; i++ ) {
             const child = this.children[ i ];
@@ -52,7 +59,7 @@ class GameObject extends PIXI.Container {
     }
 
 
-    addComponent<T>( name : string ) : T {
+    public addComponent<T>( name : string ) : T {
         if( this.components[ name ] ) return;
         const Construct = ComponentManager.Instance.getComponent( name );
 
@@ -67,12 +74,12 @@ class GameObject extends PIXI.Container {
         return comp;
     }
 
-    getComponent<T>( name : string ) : T {
+    public getComponent<T>( name : string ) : T {
         const comp = this.components[ name ] as T;
         return comp || null;
     }
 
-    removeComponent( name : string ) {
+    public removeComponent( name : string ) {
         const comp = this.components[ name ];
         if( !comp ) return;
         const idx = this.componentArr.indexOf( comp );
@@ -81,7 +88,7 @@ class GameObject extends PIXI.Container {
         this.components[ name ] = undefined;
     }
 
-    update( delta : number ) {
+    public update( delta : number ) {
         if( !this.activeSelf ) return;
 
         let count = 0;
@@ -90,6 +97,8 @@ class GameObject extends PIXI.Container {
             const comp = this.componentArr[i];
             comp.mainUpdate( delta );
         }
+
+        this.action.update( delta );
 
         count = this.children.length;
         for( let i = 0; i < count; i++ ) {
@@ -100,7 +109,7 @@ class GameObject extends PIXI.Container {
         }
     }
 
-    load( jsonData, tempData = null )
+    public load( jsonData, tempData = null )
     {
         let postProcess = false;
         if( !tempData ) {
@@ -139,7 +148,7 @@ class GameObject extends PIXI.Container {
         }
     }
 
-    loadInit(jsonData, tempData)
+    public loadInit(jsonData, tempData)
     {
         let length = this.componentArr.length;
         for( let i = 0; i < length; i++ ) {
@@ -154,6 +163,14 @@ class GameObject extends PIXI.Container {
                 child.loadInit( jsonData.children[i], tempData );
             }
         }
+    }
+
+    public addAction( maxTime, actionCall, finishCall = null) {
+        this.action.addAction( new Action( maxTime, actionCall, finishCall ) );
+    }
+
+    public  waitCall(waitTime, call) {
+        this.addAction( waitTime,function (){}, call );
     }
 
 }

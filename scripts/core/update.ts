@@ -29,6 +29,8 @@ class Update
 
         this.game.stage.update();
         this.game.render.render( this.game.stage.renderStage );
+
+        this.game.input.update();
         requestAnimationFrame( this.bind );
     }
 }

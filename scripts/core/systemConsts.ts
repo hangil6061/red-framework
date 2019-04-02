@@ -11,8 +11,25 @@ const SYSTEM_EVENT = {
     onBlur : 'onBlur',
 };
 
+const INPUT_EVENT = {
+    touchStart : 'touchstart',
+    touchEnd : 'touchend',
+    touchCancel : 'touchcancel',
+    touchMove : 'touchmove',
+
+    keyDown : 'keydown',
+    keyUp : 'keyup',
+
+    mouseDown : 'mousedown',
+    mouseUp : 'mouseup',
+    mouseMove : 'mousemove',
+    mouseEnter : 'mouseenter',
+    mouseLeave : 'mouseleave',
+};
+
 
 export {
     RESIZE_TYPE,
     SYSTEM_EVENT,
+    INPUT_EVENT,
 }

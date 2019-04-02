@@ -7,15 +7,22 @@ import Time from './core/time';
 import Update from './core/update';
 import Stage from './core/stage';
 import Render from './core/render';
+import Input from './core/input';
 import SceneManager from './core/sceneManager';
 import SystemEvent from './core/systemEvent';
 
 import GameObject from './core/gameObject';
 
+import Action from './core/action';
+import ActionCtrl from './core/actionCtrl';
+
 import ComponentManager from './core/componentManager';
 import ComponentBase from './core/componentBase';
 import Sprite from './core/component/sprite';
 import Script from './core/component/script';
+
+import KeyCode from './util/keyCode';
+import Stack from './util/stack';
 
 
 export {
@@ -29,15 +36,22 @@ export {
     Update,
     Stage,
     Render,
+    Input,
     SceneManager,
     SystemEvent,
 
     GameObject,
 
+    Action,
+    ActionCtrl,
+
     ComponentManager,
     ComponentBase,
     Sprite,
     Script,
+
+    KeyCode,
+    Stack,
 };
 
 export default {
@@ -50,15 +64,22 @@ export default {
     Time,
     Update,
     Render,
+    Input,
     SceneManager,
     SystemEvent,
 
     GameObject,
 
+    Action,
+    ActionCtrl,
+
     ComponentManager,
     ComponentBase,
     Sprite,
     Script,
+
+    KeyCode,
+    Stack,
 };
 
 

@@ -14,7 +14,7 @@ class Render  {
     public halfHeight : number = 270;
 
     public  game : Game = null;
-    public renderer : PIXI.SystemRenderer  = null;
+    public renderer : PIXI.WebGLRenderer | PIXI.CanvasRenderer  = null;
     public view : HTMLCanvasElement = null;
     private resizeType : string = RESIZE_TYPE.responsive;
     private resizeFuncArr : {} = {};
