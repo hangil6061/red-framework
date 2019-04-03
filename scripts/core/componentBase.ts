@@ -12,7 +12,6 @@ class ComponentBase {
     public constructor( gameObject ) {
         this.gameObject = gameObject;
         this.game = this.gameObject.game;
-        this.awake();
     }
 
     public load( jsonData, tempData) {

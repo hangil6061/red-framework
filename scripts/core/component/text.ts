@@ -48,6 +48,12 @@ class Text extends ComponentBase {
         this._text.style = style;
         this._text.text = jsonData.text;
         this._text.anchor.set( jsonData.pivot.x, jsonData.pivot.y );
+
+        if( jsonData.strokeThickness > 0 ) {
+            this._text.style.strokeThickness = jsonData.strokeThickness * 2;
+            this._text.style.stroke = "#" + jsonData.strokeColor;
+        }
+
     }
 }
 

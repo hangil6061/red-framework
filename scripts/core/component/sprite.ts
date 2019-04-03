@@ -30,6 +30,10 @@ class Sprite extends ComponentBase {
         this._sprite.texture = tex;
     }
 
+    get texture() {
+        return this._sprite.texture;
+    }
+
     setSprite( key : string ) {
         this._sprite.texture = PIXI.Texture.fromImage( key );
     }

@@ -1,4 +1,5 @@
 import 'pixi.js';
+import 'pixi-spine';
 import Render from "./render";
 import Time from './time';
 import SceneManager from "./sceneManager";
@@ -15,6 +16,7 @@ class Game {
     public event : SystemEvent = new SystemEvent();
     public time : Time = new Time();
     public camera : Camera = new Camera();
+    public resources : {} = null;
 
     public sceneManager : SceneManager = new SceneManager( this );
     public update : Update = new Update( this );
@@ -31,7 +33,6 @@ class Game {
         this.stage = new Stage( this );
 
         this.input = new Input( this.render.renderer, this.stage.stage );
-
 
         this.event.emit( SYSTEM_EVENT.onResize );
         if( config.autoStart ) {

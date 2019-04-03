@@ -1,7 +1,5 @@
 import ComponentBase from "../componentBase";
 import Sprite from "./sprite";
-import Util from './../../util/util';
-
 
 const _state = {
     normal : 0,

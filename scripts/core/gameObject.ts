@@ -58,7 +58,6 @@ class GameObject extends PIXI.Container {
         }
     }
 
-
     public addComponent<T>( name : string ) : T {
         if( this.components[ name ] ) return;
         const Construct = ComponentManager.Instance.getComponent( name );
@@ -71,6 +70,7 @@ class GameObject extends PIXI.Container {
         const comp = new Construct( this );
         this.components[ name ] = comp;
         this.componentArr.push( comp );
+        comp.awake();
         return comp;
     }
 
@@ -174,7 +174,7 @@ class GameObject extends PIXI.Container {
         this.addAction( waitTime,function (){}, call );
     }
 
-    public findGameObject( name ) {
+    public findGameObject( name ) : GameObject {
         if( this.name === name ) {
             return this;
         }
