@@ -1,5 +1,5 @@
-class Stack {
-    private _arr = [];
+class Stack<T> {
+    private _arr : T[] = [];
     private _length : number = 0;
     private _size : number = 0;
     private readonly _defaultSize : number = 0;
@@ -11,7 +11,7 @@ class Stack {
         this._length = 0;
     }
 
-    public get legnth() {
+    public get length() {
         return this._length;
     }
 

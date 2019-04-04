@@ -10,6 +10,7 @@ import GameObject from "./gameObject";
 import Stage from "./stage";
 import {SYSTEM_EVENT} from "./systemConsts";
 import Input from "./input";
+import PluginManager from "./pluginManager";
 
 class Game {
 
@@ -25,6 +26,8 @@ class Game {
     public stage : Stage = null;
 
     public input : Input = null;
+
+    public plugins : PluginManager = new PluginManager();
 
     constructor( config ) {
         config.autoStart = config.autoStart !== false;

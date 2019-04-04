@@ -13,6 +13,12 @@ class Vector2 {
         return this;
     }
 
+    public copy( vec ) : Vector2 {
+        this.x = vec.x;
+        this.y = vec.y;
+        return this;
+    }
+
     public negative() : Vector2 {
         this.x = -this.x;
         this.y = -this.y;

@@ -22,7 +22,10 @@ class GameObject extends PIXI.Container {
     }
 
     public set activeSelf( v : boolean ) {
+
+        if( this._isActiveSelf === v ) return;
         this._isActiveSelf = v;
+        this.visible = v;
         this.activeUpdate();
     }
 
@@ -70,7 +73,6 @@ class GameObject extends PIXI.Container {
         const comp = new Construct( this );
         this.components[ name ] = comp;
         this.componentArr.push( comp );
-        comp.awake();
         return comp;
     }
 
@@ -146,6 +148,13 @@ class GameObject extends PIXI.Container {
             this.loadInit( jsonData, tempData );
             this.activeUpdate();
         }
+
+        let count = 0;
+        count = this.componentArr.length;
+        for( let i = 0; i < count; i++ ) {
+            const comp = this.componentArr[i];
+            comp.awake();
+        }
     }
 
     public loadInit(jsonData, tempData)
@@ -188,6 +197,23 @@ class GameObject extends PIXI.Container {
             }
         }
 
+        return null;
+    }
+
+    public findComponent<T>( name ) : T {
+        const com = this.getComponent<T>(name);
+        if( com ) {
+            return com;
+        }
+
+        for( let i = 0; i < this.children.length; i++ ) {
+            if( this.children[i] instanceof GameObject) {
+                const child = this.children[i] as GameObject;
+                const com = child.findComponent<T>( name );
+                if( !com ) continue;
+                return com;
+            }
+        }
         return null;
     }
 }

@@ -19,11 +19,18 @@ import ActionCtrl from './core/actionCtrl';
 import ComponentManager from './core/componentManager';
 import ComponentBase from './core/componentBase';
 import Sprite from './core/component/sprite';
+import Spine from './core/component/spine';
 import Script from './core/component/script';
 import Button from './core/component/button';
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
+import Vector2 from './util/vector2';
+import Math from './util/math';
+import CsvParser from './util/csvParser';
+import Easing from './util/easing';
+import StringHelper from './util/stringHelper';
+import PoolManager from './util/poolManager';
 
 
 export {
@@ -49,11 +56,18 @@ export {
     ComponentManager,
     ComponentBase,
     Sprite,
+    Spine,
     Script,
     Button,
 
     KeyCode,
     Stack,
+    Vector2,
+    Math,
+    CsvParser,
+    Easing,
+    StringHelper,
+    PoolManager
 };
 
 export default {
@@ -65,6 +79,7 @@ export default {
     Game,
     Time,
     Update,
+    Stage,
     Render,
     Input,
     SceneManager,
@@ -78,11 +93,18 @@ export default {
     ComponentManager,
     ComponentBase,
     Sprite,
+    Spine,
     Script,
     Button,
 
     KeyCode,
     Stack,
+    Vector2,
+    Math,
+    CsvParser,
+    Easing,
+    StringHelper,
+    PoolManager
 };
 
 

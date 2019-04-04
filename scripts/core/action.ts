@@ -22,7 +22,7 @@ class Action {
             return false;
         }
         else {
-            this._actionCall( delta, this, this._time, this._maxTime);
+            this._actionCall( delta, this._time, this._maxTime, this);
             return true;
         }
     }

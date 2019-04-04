@@ -32,7 +32,8 @@ class Script extends ComponentBase {
         for( let i = 0; i < references.length; i++ ) {
             const data = references[i];
             if( this.hasOwnProperty( data.name ) ) {
-                this[ data.name ] = tempData[data.instanceID];
+                const go = tempData[data.instanceID];
+                this[ data.name ] = data.componentName === "" ? go : go.getComponent( data.componentName );
             }
         }
 
