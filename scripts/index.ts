@@ -22,6 +22,7 @@ import Sprite from './core/component/sprite';
 import Spine from './core/component/spine';
 import Script from './core/component/script';
 import Button from './core/component/button';
+import SpriteAnimation from './core/component/spriteAnimation';
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
@@ -59,6 +60,7 @@ export {
     Spine,
     Script,
     Button,
+    SpriteAnimation,
 
     KeyCode,
     Stack,
@@ -96,6 +98,7 @@ export default {
     Spine,
     Script,
     Button,
+    SpriteAnimation,
 
     KeyCode,
     Stack,

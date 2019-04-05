@@ -7,6 +7,10 @@ class Spine extends ComponentBase {
         super( gameObject );
     }
 
+    get spine () {
+        return this._spine;
+    }
+
     get color() {
         return this._spine.tint;
     }

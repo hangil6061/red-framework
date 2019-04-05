@@ -29,6 +29,10 @@ class GameObject extends PIXI.Container {
         this.activeUpdate();
     }
 
+    public get goParent() : GameObject {
+        return this.parent as GameObject;
+    }
+
     public getActive() {
         if( this.activeSelf && this.parent && this.parent instanceof GameObject) {
             return this.parent.getActive();

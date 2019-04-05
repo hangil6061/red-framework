@@ -6,6 +6,7 @@ import Spine from "./component/spine";
 import BoxCollider from "./component/boxCollider";
 import CircleCollider from "./component/circleCollider";
 import Gauge from "./component/gauge";
+import SpriteAnimation from "./component/spriteAnimation";
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -26,6 +27,7 @@ class ComponentManager {
         this.addComponent( 'boxCollider', BoxCollider );
         this.addComponent( 'circleCollider', CircleCollider );
         this.addComponent( 'gauge', Gauge );
+        this.addComponent( 'spriteAnimation', SpriteAnimation );
     }
 
     addComponent( name : string, construct : object ) {
