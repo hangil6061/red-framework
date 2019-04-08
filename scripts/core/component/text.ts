@@ -7,6 +7,7 @@ class Text extends ComponentBase {
         super( gameObject );
         this._text = new PIXI.Text();
         this.gameObject.addChild( this._text );
+        this._text.visible = false;
     }
 
     get text() : string {
@@ -29,8 +30,12 @@ class Text extends ComponentBase {
         return this._text.style;
     }
 
-    activeUpdate() {
-        this._text.visible = this.getActive();
+    onEnable() {
+        this._text.visible = true;
+    }
+
+    onDisable() {
+        this._text.visible = false;
     }
 
     load( jsonData, tempData ) {

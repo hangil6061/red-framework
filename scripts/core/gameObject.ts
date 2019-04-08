@@ -44,6 +44,15 @@ class GameObject extends PIXI.Container {
         return this.game.stage.stage.toLocal( this.parent.toGlobal( this.position ) );
     }
 
+    // public toScreen() {
+    //     return this.parent.toGlobal( this.position );
+    // }
+    //
+    // public toCanvas() {
+    //     const global = this.toScreen();
+    //     console.log( global );
+    // }
+
     public activeUpdate() {
         let count = 0;
         count = this.componentArr.length;
@@ -52,7 +61,8 @@ class GameObject extends PIXI.Container {
             comp.activeUpdate();
         }
 
-        if( !this.getActive() ) {
+        const enable = this.getActive();
+        if( !enable ) {
             this.action.clear();
         }
 

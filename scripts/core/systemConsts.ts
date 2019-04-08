@@ -9,6 +9,9 @@ const SYSTEM_EVENT = {
     onResize : 'onResize',
     onFocus : 'onFocus',
     onBlur : 'onBlur',
+
+    onPointerUp : 'onPointerUp',
+    onMouseWheel : 'onMouseWheel'
 };
 
 const INPUT_EVENT = {

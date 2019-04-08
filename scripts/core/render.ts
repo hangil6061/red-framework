@@ -12,12 +12,22 @@ class Render  {
     public minHeight : number = 540;
     public halfWidth : number = 480;
     public halfHeight : number = 270;
+    public viewWidth : number = 540;
+    public viewHeight : number = 960;
+    public position : { x : number, y: number } = { x:0, y:0 };
+
 
     public  game : Game = null;
     public renderer : PIXI.WebGLRenderer | PIXI.CanvasRenderer  = null;
     public view : HTMLCanvasElement = null;
     private resizeType : string = RESIZE_TYPE.responsive;
     private resizeFuncArr : {} = {};
+
+    // '게임화면'에 대한 '실제화면' 비율
+    public get screenRatio() {
+        return this.viewHeight / this.height;
+    }
+
 
     constructor( config, game ) {
         this.width = config.width || this.width;
@@ -30,6 +40,8 @@ class Render  {
         this.minHeight = config.minHeight || this.height;
         this.halfWidth = this.width / 2;
         this.halfHeight = this.height / 2;
+        this.viewWidth = config.width;
+        this.viewHeight = config.height;
 
         this.game = game;
 
@@ -73,11 +85,15 @@ class Render  {
             viewHeight = viewWidth / gameRatio;
         }
 
-        this.view.style.left = Math.floor((window.innerWidth - viewWidth) / 2) + 'px';
-        this.view.style.top = Math.floor((window.innerHeight - viewHeight) / 2) + 'px';
+        this.position.x = Math.floor((window.innerWidth - viewWidth) / 2);
+        this.position.y = Math.floor((window.innerHeight - viewHeight) / 2);
+        this.view.style.left = this.position.x + 'px';
+        this.view.style.top = this.position.y + 'px';
         this.view.style.width = viewWidth + 'px';
         this.view.style.height = viewHeight + 'px';
         this.view.style.position = 'absolute';
+        this.viewWidth = viewWidth;
+        this.viewHeight = viewHeight;
     }
 
     private _resize_responsive() : void {
@@ -113,17 +129,23 @@ class Render  {
         this.halfHeight = this.height / 2;
         this.renderer.resize( this.width , this.height );
 
-        this.view.style.left = Math.floor((window.innerWidth - viewWidth) / 2) + 'px';
-        this.view.style.top = Math.floor((window.innerHeight - viewHeight) / 2) + 'px';
+        this.position.x = Math.floor((window.innerWidth - viewWidth) / 2);
+        this.position.y = Math.floor((window.innerHeight - viewHeight) / 2);
+        this.view.style.left = this.position.x + 'px';
+        this.view.style.top = this.position.y + 'px';
         this.view.style.width = viewWidth + 'px';
         this.view.style.height = viewHeight + 'px';
         this.view.style.position = 'absolute';
+        this.viewWidth = viewWidth;
+        this.viewHeight = viewHeight;
     }
 
     private _resize_stretch() : void {
         this.view.style.position = "absolute";
         this.view.style.width = "100%";
         this.view.style.height = "100%";
+        this.viewWidth = window.innerWidth;
+        this.viewHeight = window.innerHeight;
     }
 }
 

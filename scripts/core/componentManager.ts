@@ -7,6 +7,9 @@ import BoxCollider from "./component/boxCollider";
 import CircleCollider from "./component/circleCollider";
 import Gauge from "./component/gauge";
 import SpriteAnimation from "./component/spriteAnimation";
+import InputText from "./component/inputText";
+import NineSlice from "./component/nineSlice";
+import Scroll from "./component/scroll";
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -28,6 +31,9 @@ class ComponentManager {
         this.addComponent( 'circleCollider', CircleCollider );
         this.addComponent( 'gauge', Gauge );
         this.addComponent( 'spriteAnimation', SpriteAnimation );
+        this.addComponent( 'inputText', InputText );
+        this.addComponent( 'nineSlice', NineSlice );
+        this.addComponent( 'scroll', Scroll );
     }
 
     addComponent( name : string, construct : object ) {

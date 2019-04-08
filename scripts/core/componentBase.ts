@@ -8,6 +8,7 @@ class ComponentBase {
     private _isFirstUpdate : boolean = true;
 
     private _isActiveSelf : boolean = true;
+    private _isEnable : boolean = false;
 
     public constructor( gameObject ) {
         this.gameObject = gameObject;
@@ -23,6 +24,8 @@ class ComponentBase {
     public start() {};
     public dispose() {};
     public update( delta : number ) {};
+    public onEnable() {};
+    public onDisable() {};
 
     public getActive() {
         if( this.activeSelf ) {
@@ -40,8 +43,22 @@ class ComponentBase {
         this.activeUpdate();
     }
 
-    public activeUpdate() {
+    public get enable() : boolean {
+        return this._isEnable;
+    }
 
+    public activeUpdate() {
+        const enable = this.getActive();
+        if( enable !== this._isEnable ) {
+            if( enable ) {
+                this._isEnable = true;
+                this.onEnable();
+            }
+            else {
+                this._isEnable = false;
+                this.onDisable();
+            }
+        }
     }
 
     public mainUpdate( delta : number ) {

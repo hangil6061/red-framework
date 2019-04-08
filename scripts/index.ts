@@ -23,6 +23,8 @@ import Spine from './core/component/spine';
 import Script from './core/component/script';
 import Button from './core/component/button';
 import SpriteAnimation from './core/component/spriteAnimation';
+import NineSlice from './core/component/nineSlice';
+import Scroll from './core/component/scroll';
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
@@ -61,6 +63,8 @@ export {
     Script,
     Button,
     SpriteAnimation,
+    NineSlice,
+    Scroll,
 
     KeyCode,
     Stack,
@@ -99,6 +103,8 @@ export default {
     Script,
     Button,
     SpriteAnimation,
+    NineSlice,
+    Scroll,
 
     KeyCode,
     Stack,

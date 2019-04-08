@@ -10,8 +10,8 @@ class Sprite extends ComponentBase {
 
         // this.sprite.transform = this.gameObject.transform;
         // this.game.stage.renderStage.addChild( this.sprite );
+        this._sprite.visible = false;
         this.gameObject.addChild( this._sprite );
-        this.activeUpdate();
     }
 
     get sprite() : PIXI.Sprite {
@@ -34,6 +34,18 @@ class Sprite extends ComponentBase {
         return this._sprite.texture;
     }
 
+    set width( v ) {
+        this._sprite.width = v;
+    }
+
+    set height( v ) {
+        this._sprite.height = v;
+    }
+
+    get height() {
+        return this.sprite.height;
+    }
+
     setSprite( key : string ) {
         this._sprite.texture = PIXI.Texture.fromImage( key );
     }
@@ -43,15 +55,20 @@ class Sprite extends ComponentBase {
         super.dispose();
     }
 
-    activeUpdate() {
-        this._sprite.visible = this.getActive();
+    onEnable() {
+        this._sprite.visible = true;
+    }
+
+    onDisable() {
+        this._sprite.visible = false;
     }
 
     load( jsonData, tempData ) {
         super.load( jsonData, tempData );
-
         this.setSprite( jsonData.key );
         this._sprite.anchor.set( jsonData.pivot.x, jsonData.pivot.y );
+        this._sprite.width = jsonData.size.x;
+        this._sprite.height = jsonData.size.y;
         this.color = parseInt( '0x' + jsonData.color );
     }
 }

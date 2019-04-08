@@ -19,8 +19,16 @@ class Spine extends ComponentBase {
         this._spine.tint = color;
     }
 
-    activeUpdate() {
-        this._spine.visible = this.getActive();
+    // activeUpdate() {
+    //     this._spine.visible = this.getActive();
+    // }
+
+    onEnable() {
+        this._spine.visible = true;
+    }
+
+    onDisable() {
+        this._spine.visible = false;
     }
 
     update( delta ) {
@@ -31,6 +39,7 @@ class Spine extends ComponentBase {
         this._spine = new PIXI.spine.Spine( spineData );
         this._spine.autoUpdate = false;
         this.gameObject.addChild( this._spine );
+        this._spine.visible = false;
     }
 
     load( jsonData, tempData ) {
