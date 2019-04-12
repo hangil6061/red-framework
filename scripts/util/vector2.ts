@@ -93,10 +93,10 @@ class Vector2 {
         return Math.atan2( this.y, this.x );
     }
 
-    public rotate (angle) : Vector2
+    public rotate (rad) : Vector2
     {
-        const cos = Math.cos(angle);
-        const sin = Math.sin(angle);
+        const cos = Math.cos(rad);
+        const sin = Math.sin(rad);
         this.set(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
         return this;
     }
@@ -104,6 +104,12 @@ class Vector2 {
     public clone () : Vector2
     {
         return new Vector2( this.x, this.y );
+    }
+
+    public perp () : Vector2
+    {
+        this.set( -this.y, this.x );
+        return this;
     }
 
     public static Add (vec1, vec2) : Vector2
