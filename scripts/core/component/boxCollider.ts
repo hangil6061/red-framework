@@ -1,5 +1,6 @@
 import ComponentBase from "../componentBase";
 import Vector2 from "../../util/vector2";
+import Util from '../../util/math';
 
 class BoxCollider extends ComponentBase {
     private _isTrigger : boolean = false;
@@ -38,6 +39,22 @@ class BoxCollider extends ComponentBase {
 
         return arr;
     }
+
+    hitTest( x, y ) : boolean {
+        //회전값 적용안됨.
+
+        const worldPoint = this.gameObject.toWorld();
+        const minX = worldPoint.x + this._offset.x - (this._size.x/2);
+        const maxX = worldPoint.x + this._offset.x + (this._size.x/2);
+        const minY = worldPoint.y - this._offset.y - (this._size.y/2);
+        const maxY = worldPoint.y - this._offset.y + (this._size.y/2);
+
+        if( Util.intersectsBoundsToPoint( minX, minY, maxX, maxY, x, y ) ) {
+            return true;
+        }
+        return false;
+    }
 }
+
 
 export default BoxCollider;

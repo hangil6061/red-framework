@@ -91,6 +91,35 @@ class Mathf {
         return  min + Math.random() * (max - min);
     }
 
+    public static intersectsBounds( minX1, minY1, maxX1, maxY1, minX2, minY2, maxX2, maxY2 )
+    {
+        if (minX1 > maxX2
+            || maxX1 < minX2
+            || minY1 > maxY2
+            || maxY1 < minY2)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static intersectsBoundsToPoint(minX1,minY1,maxX1,maxY1, pointX, pointY)
+    {
+        if (minX1 > pointX
+            || maxX1 < pointX
+            || minY1 > pointY
+            || maxY1 < pointY)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static intersectsCircle( aX, aY, aR, bX, bY, bR )
+    {
+        const sqrt = ((aX - bX) * (aX - bX)) + ((aY - bY) * (aY - bY ));
+        return sqrt < (aR+bR)*(aR+bR);
+    }
 }
 
 export default Mathf;
