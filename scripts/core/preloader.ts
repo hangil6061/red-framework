@@ -1,14 +1,16 @@
 import { Howl } from 'howler';
 
 class Preloader {
-    public static loadPreload( url, onLoadCall ) {
+    public static loadPreload( url, onLoadCall, onProgressCall ) {
         new PIXI.loaders.Loader().add( 'preload', url ).load( ( loader, resources )=>{
-            Preloader.load( resources['preload'].data, onLoadCall );
+            Preloader.load( resources['preload'].data, onLoadCall, onProgressCall );
         } );
     }
 
-    public static load( jsonData, onLoadCall, isSkipSpine = false ) {
+    public static load( jsonData, onLoadCall, onProgressCall, isSkipSpine = false ) {
         const loader = new PIXI.loaders.Loader();
+        let totalCount = 0;
+        let loadCount = 0;
 
         for( let type in jsonData ) {
             if( type === 'sound' ) continue;
@@ -19,6 +21,7 @@ class Preloader {
             const data = jsonData[ type ];
             for( let i = 0; i < data.length; i++ ) {
                 loader.add( data[i].key, data[i].path );
+                totalCount++;
             }
         }
 
@@ -27,6 +30,12 @@ class Preloader {
             sounds : null
         };
 
+        const progressCall = () => {
+            loadCount++;
+            onProgressCall && onProgressCall( loadCount, totalCount )
+        };
+
+        loader.onProgress.add(progressCall);
         loader.load( ( loader, resources ) => {
             returnData.resources = resources;
             if( returnData.resources && returnData.sounds ) {
@@ -34,12 +43,13 @@ class Preloader {
             }
         } );
 
+        totalCount += jsonData.sound.length;
         Preloader.howlerLoad( jsonData.sound, ( sounds ) => {
             returnData.sounds = sounds;
             if( returnData.resources && returnData.sounds ) {
                 onLoadCall( returnData.resources, returnData.sounds );
             }
-        } );
+        }, progressCall );
     }
 
     // public static loadSpine( spineData, textures, call ) {
@@ -56,12 +66,14 @@ class Preloader {
     //     } );
     // }
 
-    public static howlerLoad ( soundData, call ) {
+    public static howlerLoad ( soundData, call, onProgressCall ) {
         const sounds = {};
         let loadCount = 0;
 
         const finishCall = () => {
             loadCount++;
+            onProgressCall();
+
             if( loadCount >= soundData.length )
             {
                 call( sounds );
