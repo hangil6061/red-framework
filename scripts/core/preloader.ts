@@ -1,7 +1,7 @@
 import { Howl } from 'howler';
 
 class Preloader {
-    public static loadPreload( url, onLoadCall, onProgressCall ) {
+    public static loadPreload( url, onLoadCall, onProgressCall  = null) {
         new PIXI.loaders.Loader().add( 'preload', url ).load( ( loader, resources )=>{
             Preloader.load( resources['preload'].data, onLoadCall, onProgressCall );
         } );
