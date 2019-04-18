@@ -9,6 +9,10 @@ class NineSlice extends ComponentBase {
         this._plane.visible = false;
     }
 
+    get sprite() {
+        return this._plane;
+    }
+
     get color() {
         return this._plane.tint;
     }
@@ -61,6 +65,9 @@ class NineSlice extends ComponentBase {
         this._plane.pivot.set( jsonData.pivot.x, jsonData.pivot.y );
         this.color = parseInt( '0x' + jsonData.color );
         this.alpha = jsonData.alpha;
+        if( jsonData.isInteracive ) {
+            this._plane.interactive = true;
+        }
     }
 }
 

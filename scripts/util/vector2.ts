@@ -112,6 +112,12 @@ class Vector2 {
         return this;
     }
 
+    public rPerp() : Vector2
+    {
+        this.set( this.y, -this.x );
+        return this;
+    }
+
     public static Add (vec1, vec2) : Vector2
     {
         return new Vector2(vec1.x + vec2.x, vec1.y + vec2.y);

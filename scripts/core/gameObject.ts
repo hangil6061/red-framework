@@ -75,7 +75,7 @@ class GameObject extends PIXI.Container {
         }
     }
 
-    public addComponent<T>( name : string ) : T {
+    public addComponent<T>( name : string, isSkipAwake = false ) : T {
         if( this.components[ name ] ) return;
         const Construct = ComponentManager.Instance.getComponent( name );
 
@@ -87,6 +87,10 @@ class GameObject extends PIXI.Container {
         const comp = new Construct( this );
         this.components[ name ] = comp;
         this.componentArr.push( comp );
+
+        if(!isSkipAwake) {
+            comp.awake();
+        }
         return comp;
     }
 
@@ -143,7 +147,7 @@ class GameObject extends PIXI.Container {
         const components = jsonData.components;
         for( let i = 0;i < components.length; i++ ) {
             const componentData = components[i];
-            const comp = this.addComponent( componentData.name ) as ComponentBase;
+            const comp = this.addComponent( componentData.name, true ) as ComponentBase;
             if( comp ) {
                 comp.load( componentData, tempData );
             }

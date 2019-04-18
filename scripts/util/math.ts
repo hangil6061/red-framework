@@ -34,6 +34,15 @@ class Mathf {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+    public static clamp( value : number, min : number, max : number ) : number
+    {
+        if (value < min)
+            return min;
+        if (value > max)
+            return max;
+        return value;
+    }
+
     /**
      *
      * @param start {number}

@@ -1,11 +1,13 @@
 import ComponentBase from "../componentBase";
 
-class Sprite extends ComponentBase {
-    private readonly _sprite : PIXI.Sprite = null;
+class TiledSprite extends ComponentBase {
+    private readonly _sprite : PIXI.extras.TilingSprite = null;
 
     constructor( gameObject ) {
         super( gameObject );
-        this._sprite = new PIXI.Sprite();
+        this._sprite = new PIXI.extras.TilingSprite(
+            PIXI.Texture.EMPTY, 0, 0
+        );
         this._sprite.anchor.set( 0.5 );
 
         // this.sprite.transform = this.gameObject.transform;
@@ -85,4 +87,4 @@ class Sprite extends ComponentBase {
     }
 }
 
-export default Sprite;
+export default TiledSprite;

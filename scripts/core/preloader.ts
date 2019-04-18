@@ -7,10 +7,17 @@ class Preloader {
         } );
     }
 
-    public static load( jsonData, onLoadCall, onProgressCall, isSkipSpine = false ) {
+    public static load( jsonData : {},
+        onLoadCall,
+        onProgressCall,
+        isSkipSpine = false ) {
+
         const loader = new PIXI.loaders.Loader();
+        const map = {};
         let totalCount = 0;
         let loadCount = 0;
+
+
 
         for( let type in jsonData ) {
             if( type === 'sound' ) continue;
@@ -22,6 +29,7 @@ class Preloader {
             for( let i = 0; i < data.length; i++ ) {
                 loader.add( data[i].key, data[i].path );
                 totalCount++;
+                map[ data[i].key ] = true;
             }
         }
 
@@ -30,9 +38,11 @@ class Preloader {
             sounds : null
         };
 
-        const progressCall = () => {
-            loadCount++;
-            onProgressCall && onProgressCall( loadCount, totalCount )
+        const progressCall = (loader, resource) => {
+            if( map[ resource.name ] ) {
+                loadCount++;
+                onProgressCall && onProgressCall( loadCount, totalCount )
+            }
         };
 
         loader.onProgress.add(progressCall);
@@ -43,13 +53,18 @@ class Preloader {
             }
         } );
 
-        totalCount += jsonData.sound.length;
-        Preloader.howlerLoad( jsonData.sound, ( sounds ) => {
-            returnData.sounds = sounds;
-            if( returnData.resources && returnData.sounds ) {
-                onLoadCall( returnData.resources, returnData.sounds );
-            }
-        }, progressCall );
+        if( jsonData.hasOwnProperty( 'sound' ) ) {
+            totalCount += jsonData['sound'] && jsonData['sound'].length;
+            Preloader.howlerLoad( jsonData['sound'], ( sounds ) => {
+                returnData.sounds = sounds;
+                if( returnData.resources && returnData.sounds ) {
+                    onLoadCall( returnData.resources, returnData.sounds );
+                }
+            }, progressCall );
+        }
+        else {
+            returnData.sounds = {};
+        }
     }
 
     // public static loadSpine( spineData, textures, call ) {

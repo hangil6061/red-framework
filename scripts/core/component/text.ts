@@ -26,6 +26,14 @@ class Text extends ComponentBase {
         this._text.style.fill = color;
     }
 
+    get alpha() {
+        return this._text.alpha;
+    }
+
+    set alpha( alpha) {
+        this._text.alpha = alpha;
+    }
+
     get style() {
         return this._text.style;
     }

@@ -25,6 +25,7 @@ import Button from './core/component/button';
 import SpriteAnimation from './core/component/spriteAnimation';
 import NineSlice from './core/component/nineSlice';
 import Scroll from './core/component/scroll';
+import Text from './core/component/text';
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
@@ -34,6 +35,9 @@ import CsvParser from './util/csvParser';
 import Easing from './util/easing';
 import StringHelper from './util/stringHelper';
 import PoolManager from './util/poolManager';
+import TiledSprite from "./core/component/tiledSprite";
+import ToggleButton from "./core/component/toggleButton";
+import PaintArea from "./core/component/paintArea";
 
 
 export {
@@ -62,9 +66,13 @@ export {
     Spine,
     Script,
     Button,
+    Text,
     SpriteAnimation,
     NineSlice,
     Scroll,
+    TiledSprite,
+    ToggleButton,
+    PaintArea,
 
     KeyCode,
     Stack,
@@ -102,9 +110,13 @@ export default {
     Spine,
     Script,
     Button,
+    Text,
     SpriteAnimation,
     NineSlice,
     Scroll,
+    TiledSprite,
+    ToggleButton,
+    PaintArea,
 
     KeyCode,
     Stack,

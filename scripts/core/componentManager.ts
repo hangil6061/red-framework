@@ -10,6 +10,9 @@ import SpriteAnimation from "./component/spriteAnimation";
 import InputText from "./component/inputText";
 import NineSlice from "./component/nineSlice";
 import Scroll from "./component/scroll";
+import TiledSprite from "./component/tiledSprite";
+import ToggleButton from "./component/toggleButton";
+import PaintArea from "./component/paintArea";
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -34,6 +37,9 @@ class ComponentManager {
         this.addComponent( 'inputText', InputText );
         this.addComponent( 'nineSlice', NineSlice );
         this.addComponent( 'scroll', Scroll );
+        this.addComponent( 'tiledSprite', TiledSprite );
+        this.addComponent( 'toggleButton', ToggleButton );
+        this.addComponent( 'paintArea', PaintArea );
     }
 
     addComponent( name : string, construct : object ) {
