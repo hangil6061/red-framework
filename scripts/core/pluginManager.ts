@@ -5,11 +5,12 @@ class PluginManager {
 
     }
 
-    addPlugin( key, plugin ) {
+    addPlugin<T>( key : string, plugin : T ) : T {
         this.plugins[ key ] = plugin;
+        return plugin;
     }
 
-    getPlugin<T>( key ) : T {
+    getPlugin<T>( key : string ) : T {
         return this.plugins[ key ];
     }
 }

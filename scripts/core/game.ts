@@ -43,7 +43,7 @@ class Game {
         }
     }
 
-    load( sceneData ) {
+    load( sceneData, skipStart = false ) {
         const scenes = sceneData;
         for( let i = 0 ;i < scenes.length; i++ )
         {
@@ -52,7 +52,10 @@ class Game {
             scene.load( sceneData );
             this.sceneManager.addScene( sceneData.name, scene );
         }
-        this.sceneManager.changeScene( scenes[0].name );
+
+        if( !skipStart ) {
+            this.sceneManager.changeScene( scenes[0].name );
+        }
     }
 }
 

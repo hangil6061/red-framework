@@ -37,7 +37,6 @@ class ToggleButton extends ComponentBase{
 
     public set value(v) {
         this._onGameObject.activeSelf = v;
-        this._actionCall && this._actionCall( v );
     }
 
     public get sprite() {

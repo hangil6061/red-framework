@@ -45,6 +45,14 @@ class NineSlice extends ComponentBase {
         this._plane.height = v;
     }
 
+    get width() : number {
+        return this._plane.width;
+    }
+
+    get height() : number {
+        return this._plane.height;
+    }
+
     onEnable() {
         this._plane.visible = true;
     }

@@ -78,6 +78,7 @@ class Button extends ComponentBase {
         super.loadInit( jsonData, tempData );
         const targetID = jsonData.imageInstanceID;
         this.setTargetSprite( tempData[ targetID ] );
+        this.spriteUpdate( _state.normal )
     }
 
     // private onClick() {

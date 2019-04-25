@@ -14,6 +14,10 @@ class InputText extends ComponentBase {
         super( gameObject );
     }
 
+    get value() : string {
+        return this.element.value;
+    }
+
     create( type ) {
         if( type === 'input' ) {
             this.element = window.document.createElement( 'input' );

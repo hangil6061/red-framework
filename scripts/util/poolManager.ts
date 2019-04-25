@@ -1,15 +1,16 @@
 import Stack from "./stack";
 
+
 class PoolManager<T> {
     private _use : Stack<T> = new Stack<T>();
     private _pool : Stack<T> = new Stack<T>();
     private readonly _generator = null;
 
-    constructor( generator ) {
+    constructor( generator : ( ()=> T ) ) {
         this._generator = generator;
     }
 
-    get use() {
+    get use() : Stack<T> {
         return this._use;
     }
 
@@ -25,7 +26,7 @@ class PoolManager<T> {
         return item;
     }
 
-    return( item : T ) {
+    return( item : T ) : void {
         this._pool.push( item );
         this._use.remove( item );
     }

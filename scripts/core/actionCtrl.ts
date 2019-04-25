@@ -13,10 +13,10 @@ class ActionCtrl {
         this.addArr.push( action );
     }
 
-    public update( delta ) : void {
+    public update( delta : number ) : void {
         let len = this.actions.length;
         for(let i = 0; i < len;) {
-            const action = this.actions[i];
+            const action : Action = this.actions[i];
             if( action.update(delta) ) {
                 i++;
             }

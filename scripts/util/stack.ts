@@ -15,18 +15,18 @@ class Stack<T> {
         return this._length;
     }
 
-    public get arr() {
+    public get arr() : T[] {
         return this._arr;
     }
 
-    public clear() {
+    public clear() : void {
         for (let i = 0; i < this._length; i++){
             this._arr[i] = undefined;
         }
         this._length = 0;
     }
 
-    public push(item) {
+    public push(item : T) : void {
         if( this._length >= this._size )
         {
             this._arr.length += this._defaultSize;
@@ -36,13 +36,13 @@ class Stack<T> {
         this._arr[ this._length++ ] = item;
     }
 
-    public pop () {
+    public pop () : T {
         let item = this._arr[ --this._length ];
         this._arr[ this._length ] = undefined;
         return item;
     }
 
-    public remove (item) {
+    public remove (item : T) : void {
         const idx = this._arr.indexOf( item );
         if( idx > -1 )
         {
@@ -50,7 +50,7 @@ class Stack<T> {
         }
     }
 
-    public splice ( startIdx, removeCount ) {
+    public splice ( startIdx : number, removeCount:number ) {
         const length = this._length;
 
         if (startIdx >= length || removeCount <= 0) {

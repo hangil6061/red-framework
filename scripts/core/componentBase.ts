@@ -10,7 +10,7 @@ class ComponentBase {
     private _isActiveSelf : boolean = true;
     private _isEnable : boolean = false;
 
-    public constructor( gameObject ) {
+    public constructor( gameObject : GameObject ) {
         this.gameObject = gameObject;
         this.game = this.gameObject.game;
     }

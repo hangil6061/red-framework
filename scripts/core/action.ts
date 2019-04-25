@@ -4,13 +4,15 @@ class Action {
     private readonly _actionCall = null;
     private readonly _finishCall = null;
 
-    constructor( maxTime : number, actionCall , finishCall ) {
+    constructor( maxTime : number,
+                 actionCall : ( delta: number, time : number, maxTime : number, action:Action  )=>{},
+                 finishCall : ()=>{} ) {
         this._maxTime = maxTime;
         this._actionCall = actionCall;
         this._finishCall = finishCall;
     }
 
-    update( delta ) : boolean {
+    update( delta : number ) : boolean {
         this._time += delta;
 
         if( this._time >= this._maxTime ) {

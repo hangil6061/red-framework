@@ -7,7 +7,7 @@ class Camera extends PIXI.Container {
         super();
     }
 
-    setPosition( x, y ) {
+    setPosition( x : number, y : number ) {
         if( y === undefined ) {
             y = x;
         }
@@ -37,7 +37,7 @@ class Camera extends PIXI.Container {
         return this.position;
     }
 
-    setBounds( minX, minY, maxX, maxY ) {
+    setBounds( minX : number, minY : number, maxX : number, maxY : number ) {
         if(!this.bounds) {
             this.bounds = new PIXI.Bounds();
         }
