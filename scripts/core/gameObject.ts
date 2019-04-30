@@ -201,6 +201,20 @@ class GameObject extends PIXI.Container {
         this.addAction( waitTime,function (){}, call );
     }
 
+    public getGameObject( name : string ) : GameObject {
+        for( let i = 0; i < this.children.length; i++ ) {
+            if( this.children[i] instanceof GameObject) {
+                const child = this.children[i] as GameObject;
+                const go = child.findGameObject( name );
+                if( !go ) continue;
+                if( child.name === name ) {
+                    return go;
+                }
+            }
+        }
+        return null;
+    }
+
     public findGameObject( name ) : GameObject {
         if( this.name === name ) {
             return this;
