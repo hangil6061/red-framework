@@ -1,4 +1,4 @@
-import Red from './scripts';
+import * as Red from './scripts';
 
 
 export default Red;
