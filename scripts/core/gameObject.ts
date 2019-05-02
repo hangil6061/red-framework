@@ -232,7 +232,7 @@ class GameObject extends PIXI.Container {
         return null;
     }
 
-    public findComponent<T>( name ) : T {
+    public findComponent<T extends ComponentBase>( name ) : T {
         const com = this.getComponent<T>(name);
         if( com ) {
             return com;

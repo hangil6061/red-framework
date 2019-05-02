@@ -11,6 +11,7 @@ import Input from './core/input';
 import SceneManager from './core/sceneManager';
 import SystemEvent from './core/systemEvent';
 import SoundManager from './core/soundManager';
+import Camera from './core/camera';
 
 import GameObject from './core/gameObject';
 
@@ -56,6 +57,7 @@ export {
     SceneManager,
     SystemEvent,
     SoundManager,
+    Camera,
 
     GameObject,
 
@@ -101,6 +103,7 @@ export default {
     SceneManager,
     SystemEvent,
     SoundManager,
+    Camera,
 
     GameObject,
 

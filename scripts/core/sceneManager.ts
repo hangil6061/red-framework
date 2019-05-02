@@ -11,7 +11,7 @@ class SceneManager {
         this.game = game;
     }
 
-    public get currentScene() {
+    public get currentScene() : GameObject {
         return this._currentScene;
     }
 

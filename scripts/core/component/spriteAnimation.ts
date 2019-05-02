@@ -1,5 +1,5 @@
 import ComponentBase from "../componentBase";
-import Sprite = PIXI.Sprite;
+import Sprite from "./sprite";
 
 class SpriteAnimation extends ComponentBase {
     private _sprite : Sprite = null;
@@ -44,17 +44,34 @@ class SpriteAnimation extends ComponentBase {
         this._sprite.texture = this._textures[ this._currentClip.spriteIndexArr[this._index] ];
     }
 
-    load( jsonData, tempData ) {
-        super.load( jsonData, tempData );
-        const texArr = jsonData.sprites;
+    addClip( name : string, spriteIndexArr : number[], interval : number ) {
+        this._clips[ name ] = {
+            name,
+            spriteIndexArr,
+            interval
+        }
+    }
+
+    loadTexture( texArr : string[] ) {
         for( let i = 0; i < texArr.length; i++ ) {
             this._textures[i] = PIXI.Texture.fromImage( texArr[i] );
         }
+    }
+
+    load( jsonData, tempData ) {
+        super.load( jsonData, tempData );
+        const texArr = jsonData.sprites;
+        this.loadTexture( texArr );
+
+        // for( let i = 0; i < texArr.length; i++ ) {
+        //     this._textures[i] = PIXI.Texture.fromImage( texArr[i] );
+        // }
 
         const clipArr = jsonData.clips;
         for( let i = 0; i < clipArr.length; i++ ) {
             const data = clipArr[i];
-            this._clips[ data.name ] = data;
+            this.addClip( data.name, data.spriteIndexArr, data.interval );
+            // this._clips[ data.name ] = data;
         }
     }
 }
