@@ -3,6 +3,7 @@ import ComponentBase from "../componentBase";
 class Spine extends ComponentBase {
     private _spine : PIXI.spine.Spine = null;
 
+
     constructor( gameObject ) {
         super( gameObject );
     }
@@ -33,6 +34,12 @@ class Spine extends ComponentBase {
 
     update( delta ) {
         this._spine.update( delta );
+    }
+
+    create( spineKey ) {
+        if( this._spine === null ) {
+            this._create(this.game.resources[ spineKey ].spineData  );
+        }
     }
 
     private _create( spineData ) {
