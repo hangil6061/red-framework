@@ -10,6 +10,7 @@ import Render from './core/render';
 import Input from './core/input';
 import SceneManager from './core/sceneManager';
 import SystemEvent from './core/systemEvent';
+import SoundManager from './core/soundManager';
 
 import GameObject from './core/gameObject';
 
@@ -54,6 +55,7 @@ export {
     Input,
     SceneManager,
     SystemEvent,
+    SoundManager,
 
     GameObject,
 
@@ -98,6 +100,7 @@ export default {
     Input,
     SceneManager,
     SystemEvent,
+    SoundManager,
 
     GameObject,
 
