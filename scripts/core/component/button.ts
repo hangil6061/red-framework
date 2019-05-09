@@ -196,6 +196,15 @@ class Button extends ComponentBase {
         this.on();
     }
 
+    public setOnOff( isOn : boolean ) {
+        if( isOn ) {
+            this.on();
+        }
+        else {
+            this.off();
+        }
+    }
+
     private on() {
         if( this._targetSprite ){
             const sprite = this._targetSprite.sprite;
@@ -204,6 +213,7 @@ class Button extends ComponentBase {
                 const bindData = this._bind[i];
                 sprite.on( bindData.name, bindData.bind );
             }
+            this.spriteUpdate( _state.normal );
         }
     }
 
@@ -215,6 +225,8 @@ class Button extends ComponentBase {
                 const bindData = this._bind[i];
                 sprite.off( bindData.name, bindData.bind );
             }
+
+            this.spriteUpdate( _state.disable );
         }
     }
 

@@ -167,12 +167,7 @@ class GameObject extends PIXI.Container {
             this.activeUpdate();
         }
 
-        let count = 0;
-        count = this.componentArr.length;
-        for( let i = 0; i < count; i++ ) {
-            const comp = this.componentArr[i];
-            comp.awake();
-        }
+
     }
 
     public loadInit(jsonData, tempData)
@@ -190,6 +185,12 @@ class GameObject extends PIXI.Container {
             if( child instanceof GameObject) {
                 child.loadInit( jsonData.children[count++], tempData );
             }
+        }
+
+        count = this.componentArr.length;
+        for( let i = 0; i < count; i++ ) {
+            const comp = this.componentArr[i];
+            comp.awake();
         }
     }
 
