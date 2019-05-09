@@ -11,6 +11,7 @@ import Stage from "./stage";
 import {SYSTEM_EVENT} from "./systemConsts";
 import Input from "./input";
 import PluginManager from "./pluginManager";
+import SoundManager from "./soundManager";
 
 class Game {
 
@@ -20,6 +21,7 @@ class Game {
     public resources : {} = null;
 
     public sceneManager : SceneManager = new SceneManager( this );
+    public soundManager : SoundManager = new SoundManager();
     public update : Update = new Update( this );
 
     public render : Render = null;

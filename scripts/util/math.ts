@@ -129,6 +129,28 @@ class Mathf {
         const sqrt = ((aX - bX) * (aX - bX)) + ((aY - bY) * (aY - bY ));
         return sqrt < (aR+bR)*(aR+bR);
     }
+
+    public static intersectsBoundsToCircle(xb : number, yb : number, wb : number, hb : number, xc : number, yc : number, rc : number)
+    {
+        const hw = wb / 2;
+        const hh = hb / 2;
+        const distX = Math.abs(xc - (xb + wb / 2));
+        const distY = Math.abs(yc - (yb + hb / 2));
+
+        if (distX > hw + rc || distY > hh + rc)
+        {
+            return false
+        }
+
+        if (distX <= hw || distY <= hh)
+        {
+            return true
+        }
+
+        const x = distX - hw;
+        const y = distY - hh;
+        return x * x + y * y <= rc * rc
+    }
 }
 
 export default Mathf;

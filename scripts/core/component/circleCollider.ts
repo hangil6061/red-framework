@@ -1,6 +1,7 @@
 import ComponentBase from "../componentBase";
 import Vector2 from "../../util/vector2";
 
+
 class CircleCollider extends ComponentBase {
     private _isTrigger : boolean = false;
     private _radius : number = 0;

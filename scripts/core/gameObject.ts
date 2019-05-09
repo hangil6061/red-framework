@@ -89,6 +89,7 @@ class GameObject extends PIXI.Container {
         this.componentArr.push( comp );
 
         if(!isSkipAwake) {
+            comp.activeSelf = true;
             comp.awake();
         }
         return comp;
@@ -141,7 +142,7 @@ class GameObject extends PIXI.Container {
         this.name = jsonData.name;
         this.activeSelf = jsonData.isAcitive;
         this.position.set( jsonData.position.x, jsonData.position.y );
-        this.rotation = jsonData.rotation.z;
+        this.rotation = -jsonData.rotation.z * (Math.PI / 180);
         this.scale.set( jsonData.scale.x, jsonData.scale.y );
 
         const components = jsonData.components;
@@ -233,7 +234,7 @@ class GameObject extends PIXI.Container {
         return null;
     }
 
-    public findComponent<T>( name ) : T {
+    public findComponent<T extends ComponentBase>( name ) : T {
         const com = this.getComponent<T>(name);
         if( com ) {
             return com;

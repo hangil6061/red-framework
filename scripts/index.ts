@@ -10,6 +10,8 @@ import Render from './core/render';
 import Input from './core/input';
 import SceneManager from './core/sceneManager';
 import SystemEvent from './core/systemEvent';
+import SoundManager from './core/soundManager';
+import Camera from './core/camera';
 
 import GameObject from './core/gameObject';
 
@@ -26,6 +28,12 @@ import SpriteAnimation from './core/component/spriteAnimation';
 import NineSlice from './core/component/nineSlice';
 import Scroll from './core/component/scroll';
 import Text from './core/component/text';
+import BoxCollider from './core/component/boxCollider';
+import CircleCollider from './core/component/circleCollider';
+import TiledSprite from "./core/component/tiledSprite";
+import ToggleButton from "./core/component/toggleButton";
+import PaintArea from "./core/component/paintArea";
+
 
 import KeyCode from './util/keyCode';
 import Stack from './util/stack';
@@ -35,10 +43,8 @@ import CsvParser from './util/csvParser';
 import Easing from './util/easing';
 import StringHelper from './util/stringHelper';
 import PoolManager from './util/poolManager';
-import TiledSprite from "./core/component/tiledSprite";
-import ToggleButton from "./core/component/toggleButton";
-import PaintArea from "./core/component/paintArea";
-
+import Intersection from './util/intersection';
+import IntersectionInfo from './util/intersectionInfo';
 
 export {
     RESIZE_TYPE,
@@ -54,6 +60,8 @@ export {
     Input,
     SceneManager,
     SystemEvent,
+    SoundManager,
+    Camera,
 
     GameObject,
 
@@ -73,6 +81,8 @@ export {
     TiledSprite,
     ToggleButton,
     PaintArea,
+    BoxCollider,
+    CircleCollider,
 
     KeyCode,
     Stack,
@@ -81,7 +91,9 @@ export {
     CsvParser,
     Easing,
     StringHelper,
-    PoolManager
+    PoolManager,
+    Intersection,
+    IntersectionInfo
 };
 
 export default {
@@ -98,6 +110,8 @@ export default {
     Input,
     SceneManager,
     SystemEvent,
+    SoundManager,
+    Camera,
 
     GameObject,
 
@@ -117,6 +131,8 @@ export default {
     TiledSprite,
     ToggleButton,
     PaintArea,
+    BoxCollider,
+    CircleCollider,
 
     KeyCode,
     Stack,
@@ -125,7 +141,9 @@ export default {
     CsvParser,
     Easing,
     StringHelper,
-    PoolManager
+    PoolManager,
+    Intersection,
+    IntersectionInfo
 };
 
 

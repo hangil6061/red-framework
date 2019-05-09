@@ -45,6 +45,11 @@ class Preloader {
             }
         };
 
+        const soundProgressCall = () => {
+            loadCount++;
+            onProgressCall && onProgressCall( loadCount, totalCount )
+        };
+
         loader.onProgress.add(progressCall);
         loader.load( ( loader, resources ) => {
             returnData.resources = resources;
@@ -60,7 +65,7 @@ class Preloader {
                 if( returnData.resources && returnData.sounds ) {
                     onLoadCall( returnData.resources, returnData.sounds );
                 }
-            }, progressCall );
+            }, soundProgressCall );
         }
         else {
             returnData.sounds = {};
