@@ -138,7 +138,10 @@ class BoxCollider extends ComponentBase {
         if( !skipUpdate ) {
             for( let i = 0; i < this._worldPoints.length; i++ ) {
                 const point = this._worldPoints[i];
+
+                //@ts-ignore
                 this.gameObject.toGlobal( this._points[i], point, true );
+                //@ts-ignore
                 this.game.stage.stage.toLocal( point, null, point );
             }
             this.updateNormal();

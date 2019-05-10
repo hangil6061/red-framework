@@ -6,6 +6,8 @@ import Action from './action';
 
 class GameObject extends PIXI.Container {
     public game : Game = null;
+    private event : PIXI.utils.EventEmitter = new PIXI.utils.EventEmitter();
+
     private components = {};
     private componentArr : ComponentBase[] = [];
 
@@ -250,6 +252,29 @@ class GameObject extends PIXI.Container {
         }
         return null;
     }
+
+    public addEvent( key : string, call : (...args: any[]) => any ) {
+        this.event.on( key, call );
+    }
+
+    public removeEvent( key : string, call : (...args: any[]) => any ) {
+        this.event.off( key, call );
+    }
+
+    public emitEvent( key : string, ...args : any[] ) {
+        this.event.emit( key);
+        for( let i = 0; i < this.children.length; i++ ) {
+            if( this.children[i] instanceof GameObject ) {
+                const child = this.children[i] as GameObject;
+                if( child ) {
+                    child.emitEvent( key, ...args );
+                }
+            }
+
+
+        }
+    }
+
 }
 
 export default GameObject;
