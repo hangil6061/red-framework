@@ -203,6 +203,8 @@ class Button extends ComponentBase {
         else {
             this.off();
         }
+
+        this._isOn = isOn;
     }
 
     private on() {
