@@ -33,6 +33,7 @@ import CircleCollider from './core/component/circleCollider';
 import TiledSprite from "./core/component/tiledSprite";
 import ToggleButton from "./core/component/toggleButton";
 import PaintArea from "./core/component/paintArea";
+import MultiStyleText from './core/component/multiStyleText';
 
 
 import KeyCode from './util/keyCode';
@@ -83,6 +84,7 @@ export {
     PaintArea,
     BoxCollider,
     CircleCollider,
+    MultiStyleText,
 
     KeyCode,
     Stack,
@@ -133,6 +135,7 @@ export default {
     PaintArea,
     BoxCollider,
     CircleCollider,
+    MultiStyleText,
 
     KeyCode,
     Stack,
