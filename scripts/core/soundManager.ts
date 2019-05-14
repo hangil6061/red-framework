@@ -61,14 +61,12 @@ class SoundManager {
     }
 
     playBgm( key : string, volume : number = 1 ) {
-        if( this._bgm === this._sounds[ key ] ) return;
-
-        let bgm : Howl = this._bgm[ key ];
-        if( bgm && bgm.playing() ){
-            bgm.stop();
+        if( this._bgm === this._sounds[ key ] || !this._sounds[ key ] ) return;
+        if( this._bgm && this._bgm.playing() ){
+            this._bgm.stop();
         }
 
-        bgm = this._sounds[ key ];
+        let bgm : Howl = this._sounds[ key ];
         if( bgm) {
 
             // @ts-ignore
@@ -83,6 +81,8 @@ class SoundManager {
             }
             bgm.loop(true);
             bgm.play();
+
+            this._bgm = bgm;
         }
     }
 
