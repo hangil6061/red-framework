@@ -26,6 +26,14 @@ class Sprite extends ComponentBase {
         this._sprite.tint = color;
     }
 
+    get alpha() : number{
+        return this._sprite.alpha;
+    }
+
+    set alpha( alpha : number ) {
+        this._sprite.alpha = alpha;
+    }
+
     set texture( tex : PIXI.Texture ) {
         this._sprite.texture = tex;
     }
@@ -79,6 +87,7 @@ class Sprite extends ComponentBase {
         this._sprite.width = jsonData.size.x;
         this._sprite.height = jsonData.size.y;
         this.color = parseInt( '0x' + jsonData.color );
+        this.alpha = jsonData.alpha;
         if( jsonData.isInteracive ) {
             this._sprite.interactive = true;
         }

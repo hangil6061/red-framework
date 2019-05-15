@@ -8,6 +8,10 @@ class Spine extends ComponentBase {
         super( gameObject );
     }
 
+    get originSpine() {
+        return this._spine;
+    }
+
     get spine () {
         return this._spine;
     }
@@ -73,8 +77,6 @@ class Spine extends ComponentBase {
     addAnimation( name ) {
         this._spine.state.addAnimation(0, name, true, 0);
     }
-
-
 }
 
 export default Spine;

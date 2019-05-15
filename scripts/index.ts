@@ -46,6 +46,9 @@ import StringHelper from './util/stringHelper';
 import PoolManager from './util/poolManager';
 import Intersection from './util/intersection';
 import IntersectionInfo from './util/intersectionInfo';
+import TextAnimation from './util/textAnimation';
+
+import PixiMultiStyleText, {ExtendedTextStyle} from 'pixi-multistyle-text';
 
 export {
     RESIZE_TYPE,
@@ -95,7 +98,10 @@ export {
     StringHelper,
     PoolManager,
     Intersection,
-    IntersectionInfo
+    IntersectionInfo,
+    TextAnimation,
+
+    PixiMultiStyleText
 };
 
 export default {
@@ -146,7 +152,10 @@ export default {
     StringHelper,
     PoolManager,
     Intersection,
-    IntersectionInfo
+    IntersectionInfo,
+    TextAnimation,
+
+    PixiMultiStyleText
 };
 
 

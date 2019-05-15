@@ -10,6 +10,10 @@ class Text extends ComponentBase {
         this._text.visible = false;
     }
 
+    get originText() : PIXI.Text {
+        return this._text;
+    }
+
     get text() : string {
         return this._text.text;
     }

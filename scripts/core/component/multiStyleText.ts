@@ -13,6 +13,10 @@ class MultiStyleText extends ComponentBase {
         this._text.visible = false;
     }
 
+    get originText() : PixiMultiStyleText {
+        return this._text;
+    }
+
     get text() : string {
         return this._text.text;
     }
