@@ -16,7 +16,7 @@ class Time {
         if( this.delta > this.maxDelta ) {
             this.delta = this.maxDelta;
         }
-        return this.delta;
+        return this.delta * this.scale;
     }
 }
 
