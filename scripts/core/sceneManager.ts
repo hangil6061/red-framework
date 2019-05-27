@@ -6,6 +6,7 @@ class SceneManager {
 
     private _scenes = {};
     private _currentScene : GameObject = null;
+    private _prevScene : GameObject = null;
 
     constructor( game : Game ) {
         this.game = game;
@@ -13,6 +14,10 @@ class SceneManager {
 
     public get currentScene() : GameObject {
         return this._currentScene;
+    }
+
+    public get prevScene() : GameObject {
+        return this._prevScene;
     }
 
     public addScene( key : string, scene : GameObject ) {
@@ -24,8 +29,10 @@ class SceneManager {
         scene.activeSelf = false;
     }
 
-    public changeScene( key : string ) {
-        if(this._currentScene) {
+    public changeScene( key : string, skipPrevSceneActive = false ) {
+
+        this._prevScene = this._currentScene;
+        if(this._currentScene && !skipPrevSceneActive) {
             this._currentScene.activeSelf = false;
         }
 
@@ -34,6 +41,7 @@ class SceneManager {
             this._currentScene = scene;
             this._currentScene.activeSelf = true;
         }
+
     }
 }
 
