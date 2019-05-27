@@ -42,6 +42,7 @@ class Render  {
         this.halfHeight = this.height / 2;
         this.viewWidth = config.width;
         this.viewHeight = config.height;
+        this.resizeType = config.resizeType || this.resizeType;
 
         this.game = game;
 
@@ -67,7 +68,7 @@ class Render  {
     }
 
     private _resize_none() : void {
-
+        console.log( 'none' );
     }
 
     private _resize_base() : void {
