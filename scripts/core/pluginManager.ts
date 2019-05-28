@@ -1,5 +1,5 @@
 class PluginManager {
-    private plugins = { };
+    private plugins : {[key:string] : any} = { };
 
     constructor() {
 

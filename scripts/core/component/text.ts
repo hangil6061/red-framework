@@ -59,7 +59,8 @@ class Text extends ComponentBase {
             fontSize : jsonData.fontSize,
             fill : "#" + jsonData.color,
             wordWrap : jsonData.width !== 0,
-            wordWrapWidth : jsonData.width
+            wordWrapWidth : jsonData.width,
+            lineHeight : jsonData.lineHeight || 0,
         } );
 
         this._text.style = style;
