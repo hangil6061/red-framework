@@ -48,6 +48,8 @@ import Intersection from './util/intersection';
 import IntersectionInfo from './util/intersectionInfo';
 import TextAnimation from './util/textAnimation';
 
+import TTS from './util/tts';
+
 import PixiMultiStyleText, {ExtendedTextStyle} from 'pixi-multistyle-text';
 
 export {
@@ -100,6 +102,8 @@ export {
     Intersection,
     IntersectionInfo,
     TextAnimation,
+
+    TTS,
 
     PixiMultiStyleText
 };
@@ -154,6 +158,8 @@ export default {
     Intersection,
     IntersectionInfo,
     TextAnimation,
+
+    TTS,
 
     PixiMultiStyleText
 };

@@ -20,6 +20,7 @@ class Preloader {
 
 
         for( let type in jsonData ) {
+            if( type === 'model' ) continue;
             if( type === 'sound' ) continue;
             if( type === 'spine' && isSkipSpine ) continue;
 
@@ -54,7 +55,7 @@ class Preloader {
         loader.load( ( loader, resources ) => {
             returnData.resources = resources;
             if( returnData.resources && returnData.sounds ) {
-                onLoadCall( returnData.resources, returnData.sounds );
+                onLoadCall( returnData.resources, returnData.sounds, jsonData );
             }
         } );
 
@@ -63,7 +64,7 @@ class Preloader {
             Preloader.howlerLoad( jsonData['sound'], ( sounds ) => {
                 returnData.sounds = sounds;
                 if( returnData.resources && returnData.sounds ) {
-                    onLoadCall( returnData.resources, returnData.sounds );
+                    onLoadCall( returnData.resources, returnData.sounds, jsonData );
                 }
             }, soundProgressCall );
         }

@@ -105,7 +105,9 @@ class Tts {
             }
         }
 
-        text = text.split('\n').join(' ');
+        if( parameters.volume === undefined ) {
+            parameters.volume = 1;
+        }
 
         if( !this.isFallbackMode ) {
             this._speak_base(text, voiceName, parameters);
@@ -367,14 +369,14 @@ class Tts {
     }
 
 
-    test_skip() {
+    skip() {
         if( this.ssUtterances.length === 0 ) return;
         const temp = this.ssUtterances[0].onend;
+        this.cancel();
         //@ts-ignore
         temp && temp();
         // this.ssUtterances[0].onend = null;
     }
-
 }
 
 const tts = new Tts();
