@@ -407,6 +407,48 @@ const Easing = {
             if ( k < 0.5 ) return Easing.Bounce.In( k * 2 ) * 0.5;
             return Easing.Bounce.Out( k * 2 - 1 ) * 0.5 + 0.5;
         }
+    },
+
+    Shake : function (t) {
+        if( t < 0.25 ) {
+            return (t / 0.25);
+        }
+        else if( t < 0.5 ) {
+            return 1 - ( (t - 0.25) / 0.25 );
+        }
+        else if( t < 0.75 ) {
+            return -( (t - 0.5) / 0.25 );
+        }
+        else {
+            return  ( (t - 0.75) / 0.25 ) - 1;
+        }
+    },
+
+    Reverse : function (t) {
+        if( t < 0.5 ) {
+            return t / 0.5;
+        }
+        else {
+            return 1 - (t-0.5)/0.5
+        }
+    },
+
+    TurnOnOff : function (t) {
+        if( t < 0.5 ) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    },
+
+    TurnOffOn : function (t) {
+        if( t < 0.5 ) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
     }
 };
 
