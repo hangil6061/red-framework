@@ -93,9 +93,10 @@ class Tts {
 
     speak( text, voiceName, parameters) {
 
-        if( this.ssUtterances.length > 0 ) {
-            this.cancel();
-        }
+        // if( this.ssUtterances.length > 0 ) {
+        //     this.cancel();
+        // }
+        this.cancel();
 
         //빈텍스트 처리
         if( text === '' || text === ' ') {
@@ -331,10 +332,15 @@ class Tts {
             //     return;
             // }
 
+            if( this.isAndroid && this.androidPlayData.isPause ) {
+                this.androidPlayData.isPause = false;
+            }
+
             for( let i = 0; i < this.ssUtterances.length; i++ ) {
                 this.ssUtterances[i].onend = undefined;
             }
             this.ssUtterances.length = 0;
+
 
             speechSynthesis.cancel();
         }
@@ -343,6 +349,10 @@ class Tts {
             //     // console.log( 'not playing' );
             //     return;
             // }
+
+            if( this.androidTTSBridgePlayData.isPause ) {
+                this.androidTTSBridgePlayData.isPause = false;
+            }
 
             //@ts-ignore
             window.TTSBridge.stop();

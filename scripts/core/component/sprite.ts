@@ -65,6 +65,13 @@ class Sprite extends ComponentBase {
         else {
             this._sprite.texture = PIXI.Texture.fromImage( key );
         }
+
+        this.initSize();
+    }
+
+    initSize() {
+        this._sprite.width = this._sprite.texture.width;
+        this._sprite.height = this._sprite.texture.height;
     }
 
     dispose() {
