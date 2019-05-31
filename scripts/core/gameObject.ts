@@ -270,8 +270,6 @@ class GameObject extends PIXI.Container {
                     child.emitEvent( key, ...args );
                 }
             }
-
-
         }
     }
 

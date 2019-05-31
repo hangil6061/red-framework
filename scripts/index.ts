@@ -33,7 +33,9 @@ import CircleCollider from './core/component/circleCollider';
 import TiledSprite from "./core/component/tiledSprite";
 import ToggleButton from "./core/component/toggleButton";
 import PaintArea from "./core/component/paintArea";
+import Gauge from './core/component/gauge';
 import MultiStyleText from './core/component/multiStyleText';
+import ButtonEvent from './core/component/buttonEvent';
 
 
 import KeyCode from './util/keyCode';
@@ -47,6 +49,7 @@ import PoolManager from './util/poolManager';
 import Intersection from './util/intersection';
 import IntersectionInfo from './util/intersectionInfo';
 import TextAnimation from './util/textAnimation';
+import Util from './util/util';
 
 import TTS from './util/tts';
 
@@ -89,7 +92,9 @@ export {
     PaintArea,
     BoxCollider,
     CircleCollider,
+    Gauge,
     MultiStyleText,
+    ButtonEvent,
 
     KeyCode,
     Stack,
@@ -102,6 +107,7 @@ export {
     Intersection,
     IntersectionInfo,
     TextAnimation,
+    Util,
 
     TTS,
 
@@ -145,7 +151,9 @@ export default {
     PaintArea,
     BoxCollider,
     CircleCollider,
+    Gauge,
     MultiStyleText,
+    ButtonEvent,
 
     KeyCode,
     Stack,
@@ -158,6 +166,7 @@ export default {
     Intersection,
     IntersectionInfo,
     TextAnimation,
+    Util,
 
     TTS,
 

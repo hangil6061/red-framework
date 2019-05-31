@@ -33,6 +33,28 @@ class Util {
     };
 
 
+    /**
+     * 존재하면 덮어쓰기
+     * @param key
+     * @param str
+     */
+    public static localSave (key : string, str : string) {
+        if( localStorage ) {
+            localStorage.setItem(key, str);
+        }
+    };
+
+    /**
+     * 값 찾지 못하면 null 리턴
+     * @param key
+     */
+    public static localLoad( key : string ) {
+        if( localStorage ) {
+            return localStorage.getItem(key)
+        }
+        return null;
+    }
+
 }
 
 

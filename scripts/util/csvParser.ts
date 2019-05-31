@@ -1,5 +1,5 @@
 class CsvParser {
-    static parse( string ) {
+    static parse( string )  {
         const dataList = [];
         const headArr = [];
         const str = {

@@ -14,6 +14,7 @@ import TiledSprite from "./component/tiledSprite";
 import ToggleButton from "./component/toggleButton";
 import PaintArea from "./component/paintArea";
 import MultiStyleText from './component/multiStyleText';
+import ButtonEvent from './component/buttonEvent';
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -42,6 +43,7 @@ class ComponentManager {
         this.addComponent( 'toggleButton', ToggleButton );
         this.addComponent( 'paintArea', PaintArea );
         this.addComponent( 'multiStyleText', MultiStyleText );
+        this.addComponent( 'buttonEvent', ButtonEvent );
     }
 
     addComponent( name : string, construct : object ) {
