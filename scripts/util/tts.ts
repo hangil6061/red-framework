@@ -263,7 +263,7 @@ class Tts {
         }
     }
 
-    resume() {
+    resume( volume : number = 1 ) {
         if( !this.isFallbackMode ) {
             if( this.isAndroid ) {
                 if( this.androidPlayData.isPause ) {
@@ -281,6 +281,7 @@ class Tts {
                         this.androidPlayData.startTime = Date.now();
                         this.isPlay = true;
                     };
+                    su.volume = volume;
 
                     const onend = this.androidPlayData.onend;
                     su.onend = ()=>{
@@ -314,7 +315,8 @@ class Tts {
                 };
 
                 this._speak_androidBridge( text, '', {
-                    onend : this.androidTTSBridgePlayData.onend
+                    onend : this.androidTTSBridgePlayData.onend,
+                    volume
                 } );
             }
         }
