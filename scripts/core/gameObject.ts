@@ -198,6 +198,10 @@ class GameObject extends PIXI.Container {
     }
 
     public addAction( maxTime, actionCall, finishCall = null) {
+        if( !this.activeSelf ) {
+            return;
+        }
+
         this.action.addAction( new Action( maxTime, actionCall, finishCall ) );
     }
 
@@ -262,7 +266,7 @@ class GameObject extends PIXI.Container {
     }
 
     public emitEvent( key : string, ...args : any[] ) {
-        this.event.emit( key);
+        this.event.emit( key, ...args);
         for( let i = 0; i < this.children.length; i++ ) {
             if( this.children[i] instanceof GameObject ) {
                 const child = this.children[i] as GameObject;

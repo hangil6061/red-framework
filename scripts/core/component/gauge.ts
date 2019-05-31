@@ -23,6 +23,7 @@ class Gauge extends Sprite {
 
     load( jsonData, tempData ) {
         super.load( jsonData, tempData );
+        this._fillType = jsonData.filledType === 'radial360' ? FillType.radial360 : FillType.horizontal;
         this._fillAnticlockwise = !jsonData.fillClockwise;
         this._width = this.texture.width;
         this._height = this.texture.height;
