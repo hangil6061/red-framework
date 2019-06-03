@@ -1,3 +1,5 @@
+import Mathf from './math';
+
 class Util {
     public static deepCopy( obj ) {
         let ret;
@@ -54,6 +56,19 @@ class Util {
         }
         return null;
     }
+
+    public static shuffle( arr : any[], count : number ) {
+        for( let i = 0; i < count; i++  ) {
+            const src = Mathf.randomInt( 0, arr.length );
+            const dst = Mathf.randomInt( 0, arr.length );
+            if( src === dst ) continue;
+
+            const temp = arr[ src ];
+            arr[src] = arr[dst];
+            arr[dst] = temp;
+        }
+    }
+
 
 }
 
