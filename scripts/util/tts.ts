@@ -240,7 +240,7 @@ class Tts {
                     this.androidPlayData.ssUtterance = this.ssUtterances[0];
                     this.androidPlayData.pauseTime = Date.now();
                     this.androidPlayData.onend = this.ssUtterances[0].onend;
-                    this.cancel();
+                    this.cancel( true );
                 }
             }
             else {
@@ -326,7 +326,7 @@ class Tts {
         }
     }
 
-    cancel() {
+    cancel( isPauseSkip = false ) {
 
         if( !this.isFallbackMode ) {
             // if( !this.isPlay ) {
@@ -334,7 +334,7 @@ class Tts {
             //     return;
             // }
 
-            if( this.isAndroid && this.androidPlayData.isPause ) {
+            if( !isPauseSkip && this.isAndroid && this.androidPlayData.isPause ) {
                 this.androidPlayData.isPause = false;
             }
 
