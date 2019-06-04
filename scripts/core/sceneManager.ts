@@ -25,7 +25,7 @@ class SceneManager {
             return;
         }
         this._scenes[ key ] = scene;
-        this.game.stage.stage.addChild( scene );
+        this.game.stage.scene.addChild( scene );
         scene.activeSelf = false;
     }
 

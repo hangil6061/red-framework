@@ -5,10 +5,26 @@ class Stage {
     public game : Game = null;
 
     private _stage : PIXI.Container = new PIXI.Container();
+    private _back : PIXI.Container = new PIXI.Container();
+    private _scene : PIXI.Container = new PIXI.Container();
+    private _front : PIXI.Container = new PIXI.Container();
+
     // private _renderStage : PIXI.Container = new PIXI.Container();
 
     public get stage() {
         return this._stage;
+    }
+
+    public get back() {
+        return this._back;
+    }
+
+    public get front() {
+        return this._front;
+    }
+
+    public get scene() {
+        return this._scene;
     }
 
     public get renderStage() {
@@ -21,6 +37,10 @@ class Stage {
 
         const parentStage = new PIXI.Container();
         parentStage.addChild( this._stage );
+        this._stage.addChild( this._back );
+        this._stage.addChild( this._scene );
+        this._stage.addChild( this._front );
+
         // parentStage.addChild( this._renderStage );
 
         // this.game.event.on( SYSTEM_EVENT.onResize, ()=>{
