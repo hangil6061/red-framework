@@ -15,6 +15,8 @@ class ToggleButton extends ComponentBase{
 
     private _bind : {name:string, bind}[] = [];
 
+    public static Event : PIXI.utils.EventEmitter = new PIXI.utils.EventEmitter();
+
     constructor( gameObject ) {
         super( gameObject );
 
@@ -80,7 +82,10 @@ class ToggleButton extends ComponentBase{
         if( this._isDown ) {
             this._isDown = false;
             this._onGameObject.activeSelf = !this._onGameObject.activeSelf;
+
+            ToggleButton.Event.emit('beforeAction');
             this._actionCall && this._actionCall( this._onGameObject.activeSelf );
+            ToggleButton.Event.emit('actionAfter');
         }
     }
 

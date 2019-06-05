@@ -17,6 +17,8 @@ const _transitionType = {
 
 class Button extends ComponentBase {
 
+    public event : PIXI.utils.EventEmitter = new PIXI.utils.EventEmitter();
+
     public normalCall = null;
     public overCall = null;
     public pushCall = null;
@@ -38,6 +40,7 @@ class Button extends ComponentBase {
 
     private _bind : {name:string, bind}[] = [];
 
+    public static Event : PIXI.utils.EventEmitter = new PIXI.utils.EventEmitter();
 
     constructor( gameObject ) {
         super( gameObject );
@@ -165,7 +168,11 @@ class Button extends ComponentBase {
 
         if( this._isDown ) {
             this._isDown = false;
+            Button.Event.emit('beforeAction');
+            this.event.emit('beforeAction');
             this._actionCall && this._actionCall(e);
+            this.event.emit('actionAfter');
+            Button.Event.emit('actionAfter');
         }
     }
 
