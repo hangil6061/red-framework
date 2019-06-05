@@ -41,17 +41,22 @@ class Tts {
 
                 //@ts-ignore
                 window.onTTSStart = () => {
-                    console.log('onTTS Start');
+                    // console.log('onTTS Start');
                 };
 
                 //@ts-ignore
                 window.onTTSDone = () => {
-                    console.log('onTTS Done');
+                    // console.log('onTTS Done');
                 };
 
                 //@ts-ignore
                 window.onTTSError = () => {
-                    console.log('onTTS Error');
+                    // console.log('onTTS Error');
+                };
+
+                //@ts-ignore
+                window.onTTSStop = () => {
+                    // console.log('onTTS Error');
                 };
             }
             //@ts-ignore
@@ -254,7 +259,7 @@ class Tts {
                 // const onend = window.onTTSDone;
                 //@ts-ignore
                 this.androidTTSBridgePlayData.onend = window.onTTSDone;
-                this.cancel();
+                this.cancel( true );
             }
         }
         else if( this.isFallbackMode && this.responsiveVoiceMode ) {
@@ -352,7 +357,7 @@ class Tts {
             //     return;
             // }
 
-            if( this.androidTTSBridgePlayData.isPause ) {
+            if( !isPauseSkip && this.androidTTSBridgePlayData.isPause ) {
                 this.androidTTSBridgePlayData.isPause = false;
             }
 
