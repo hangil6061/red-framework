@@ -22,6 +22,7 @@ class MultiStyleText extends ComponentBase {
     }
 
     set text(text) {
+        text = text.split('\r').join('');
         this._text.text = text;
     }
 

@@ -1,4 +1,5 @@
 import ComponentBase from "../componentBase";
+import Store from "../../../../scripts/data/store";
 
 class Text extends ComponentBase {
     private readonly _text : PIXI.Text = null;
@@ -19,6 +20,7 @@ class Text extends ComponentBase {
     }
 
     set text(text) {
+        text = text.split('\r').join('');
         this._text.text = text;
     }
 
