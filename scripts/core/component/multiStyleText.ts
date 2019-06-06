@@ -26,13 +26,17 @@ class MultiStyleText extends ComponentBase {
         this._text.text = text;
     }
 
-    // get color() {
-    //     return this._text.style.fill;
-    // }
-    //
-    // set color( color : string | string[] | number | number[] | CanvasGradient | CanvasPattern ) {
-    //     this._text.style.fill = color;
-    // }
+    get color() {
+        return this._text.style.fill;
+    }
+
+    set color( color : string | string[] | number | number[] | CanvasGradient | CanvasPattern ) {
+
+        this.style.fill = '#ff0000';
+        this._text.style.fill = '#ff0000';
+        //@ts-ignore
+        this._text._style.fill = '#ff0000';
+    }
 
     get alpha() {
         return this._text.alpha;
