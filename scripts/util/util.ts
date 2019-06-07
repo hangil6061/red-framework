@@ -69,7 +69,16 @@ class Util {
         }
     }
 
-
+    public static readTextFile(file, call) {
+        const req = new XMLHttpRequest();
+        req.open("GET", file, true);
+        req.onreadystatechange = function() {
+            if( req.readyState === 4 && req.status === 200 ) {
+                call && call( req.responseText );
+            }
+        };
+        req.send(null);
+    }
 }
 
 

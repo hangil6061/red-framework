@@ -8,6 +8,7 @@ class Tts {
     public isAndroid : boolean = false;
     public androidPlayData : any = {};
     public isPlay : boolean = false;
+    public lastEvent : string = '';
 
 
     constructor() {
@@ -20,8 +21,8 @@ class Tts {
             onend : null,
         };
 
-        this.isAndroid = navigator.userAgent.toLowerCase().indexOf( 'android' ) > -1;
-        // this.isAndroid = true;
+        // this.isAndroid = navigator.userAgent.toLowerCase().indexOf( 'android' ) > -1;
+        this.isAndroid = true;
         this.androidPlayData = {
             isPause : false,
             startTime : 0,
@@ -101,7 +102,20 @@ class Tts {
         // if( this.ssUtterances.length > 0 ) {
         //     this.cancel();
         // }
-        this.cancel();
+
+        if( this.ssUtterances.length > 0 ) {
+            this.cancel();
+            setTimeout( ()=>{
+                this.speak( text, voiceName, parameters );
+            }, 500);
+            return;
+        }
+        else {
+            this.cancel();
+        }
+
+
+        this.lastEvent = 'speak';
 
         //빈텍스트 처리
         if( text === '' || text === ' ') {
@@ -152,8 +166,13 @@ class Tts {
 
             speech.onstart = (event)=>{
                 // console.log( 'onstart', event );
-                this.androidPlayData.startTime = Date.now();
-                this.isPlay = true;
+                if( this.lastEvent === 'cancel' ) {
+                    this.cancel();
+                }
+                else {
+                    this.androidPlayData.startTime = Date.now();
+                    this.isPlay = true;
+                }
             };
 
             speech.onend = (event)=>{
@@ -186,7 +205,12 @@ class Tts {
         }
         else {
             speech.onstart = (event)=>{
-                this.isPlay = true;
+                if( this.lastEvent === 'cancel' ) {
+                    this.cancel();
+                }
+                else {
+                    this.isPlay = true;
+                }
             };
 
             speech.onend = (event)=>{
@@ -211,9 +235,15 @@ class Tts {
 
         //@ts-ignore
         window.onTTSStart = ()=>{
-            this.androidTTSBridgePlayData.startTime = Date.now();
-            this.isPlay = true;
-            parameters && parameters.onstart && parameters.onstart();
+            if( this.lastEvent === 'cancel' ) {
+                this.cancel();
+            }
+            else {
+                this.isPlay = true;
+                this.androidTTSBridgePlayData.startTime = Date.now();
+                this.isPlay = true;
+                parameters && parameters.onstart && parameters.onstart();
+            }
         };
         //@ts-ignore
         window.onTTSDone = ()=>{
@@ -332,6 +362,8 @@ class Tts {
     }
 
     cancel( isPauseSkip = false ) {
+
+        this.lastEvent = 'cancel';
 
         if( !this.isFallbackMode ) {
             // if( !this.isPlay ) {

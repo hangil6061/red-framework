@@ -1,5 +1,8 @@
 readTextFile( 'version.json', ( text )=>{
     printVersion(JSON.parse(text));
+
+
+
 } );
 
 function readTextFile(file, call) {
@@ -19,6 +22,8 @@ function printVersion( version ) {
     const color2 = '#fff560';
     const bgColor2 = '#030307';
 
+    //@ts-ignore
+    window.RED_GAME_VERSION = version.version;
 
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
         const args = [
