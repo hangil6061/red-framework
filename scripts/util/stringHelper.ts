@@ -41,6 +41,18 @@ class StringHelper {
     };
 
 
+    /**
+     * 단어의 마지막 글자 받침을 반환해줌, 없으면 빈텍스트
+     * @param a
+     */
+    public static getFinalConsonant(a) : string
+    {
+        const r = (a.charCodeAt(0) - parseInt('0xac00',16)) % 28;
+        const t = String.fromCharCode(r + parseInt('0x11A8') -1);
+        return t;
+    }
+
+
 }
 
 export default StringHelper;
