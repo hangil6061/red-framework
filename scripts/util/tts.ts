@@ -107,7 +107,7 @@ class Tts {
             this.cancel();
             setTimeout( ()=>{
                 this.speak( text, voiceName, parameters );
-            }, 500);
+            }, 100);
             return;
         }
         else {
