@@ -15,6 +15,7 @@ import ToggleButton from "./component/toggleButton";
 import PaintArea from "./component/paintArea";
 import MultiStyleText from './component/multiStyleText';
 import ButtonEvent from './component/buttonEvent';
+import InitText from './component/initText';
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -44,6 +45,7 @@ class ComponentManager {
         this.addComponent( 'paintArea', PaintArea );
         this.addComponent( 'multiStyleText', MultiStyleText );
         this.addComponent( 'buttonEvent', ButtonEvent );
+        this.addComponent( 'initText', InitText );
     }
 
     addComponent( name : string, construct : object ) {

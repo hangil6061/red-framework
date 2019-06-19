@@ -50,6 +50,7 @@ import Intersection from './util/intersection';
 import IntersectionInfo from './util/intersectionInfo';
 import TextAnimation from './util/textAnimation';
 import Util from './util/util';
+import TextManager from './util/textManager';
 
 import TTS from './util/tts';
 
@@ -108,6 +109,7 @@ export {
     IntersectionInfo,
     TextAnimation,
     Util,
+    TextManager,
 
     TTS,
 
@@ -167,6 +169,7 @@ export default {
     IntersectionInfo,
     TextAnimation,
     Util,
+    TextManager,
 
     TTS,
 

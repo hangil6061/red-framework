@@ -12,6 +12,7 @@ import {SYSTEM_EVENT} from "./systemConsts";
 import Input from "./input";
 import PluginManager from "./pluginManager";
 import SoundManager from "./soundManager";
+import TextManager from "../util/textManager";
 
 class Game {
 
@@ -30,6 +31,7 @@ class Game {
     public input : Input = null;
 
     public plugins : PluginManager = new PluginManager();
+    public textManager : TextManager = null;
 
     constructor( config ) {
         config.autoStart = config.autoStart !== false;
