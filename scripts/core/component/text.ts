@@ -1,5 +1,4 @@
 import ComponentBase from "../componentBase";
-import Store from "../../../../scripts/data/store";
 
 class Text extends ComponentBase {
     private readonly _text : PIXI.Text = null;
