@@ -1,8 +1,5 @@
 readTextFile( 'version.json', ( text )=>{
     printVersion(JSON.parse(text));
-
-
-
 } );
 
 function readTextFile(file, call) {
