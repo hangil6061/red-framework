@@ -1,9 +1,21 @@
 import ComponentBase from "../componentBase";
+import GameObject from "../gameObject";
 
 class Script extends ComponentBase {
 
     constructor( gameObject ) {
         super( gameObject );
+    }
+
+    awake() {
+        for( let i = 0; i < this.gameObject.children.length; i++ ) {
+            const go = this.gameObject.children[i] as GameObject;
+            if( !go ) continue;
+            const property =  this[go.name];
+            if( property === null ) {
+                this[go.name] = go.getComponentByIndex( 0 );
+            }
+        }
     }
 
     load( jsonData, tempData ) {
