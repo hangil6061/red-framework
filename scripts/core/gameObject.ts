@@ -77,6 +77,10 @@ class GameObject extends PIXI.Container {
         }
     }
 
+    public get componentCount() {
+        return this.componentArr.length;
+    }
+
     public getComponentByIndex(index : number) : ComponentBase {
         return this.componentArr[index] || null;
     }
