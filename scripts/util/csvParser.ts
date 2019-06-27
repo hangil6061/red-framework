@@ -1,5 +1,8 @@
 class CsvParser {
-    static parse( string )  {
+    static parse( string : string)  {
+
+        string = CsvParser.removeLine( string );
+
         const dataList = [];
         const headArr = [];
         const str = {
@@ -99,6 +102,24 @@ class CsvParser {
         }
 
         return dataList;
+    }
+
+    static removeLine( str : string ) : string {
+
+        const line = str.split( '\n' );
+        let result = '';
+
+        for( let i = 0; i < line.length; i++ ) {
+            if( line[i][0] === '#' ) continue;
+            if( result === '' ) {
+                result += line[i];
+            }
+            else {
+                result += '\n' + line[i];
+            }
+        }
+
+        return result;
     }
 }
 
