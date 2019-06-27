@@ -69,6 +69,16 @@ class Scroll extends ComponentBase {
         this._updateBar();
     }
 
+    addItem( gameObject : GameObject, addHeight : number = 0 ) {
+        if (this._area.children.length === 0)
+        {
+            addHeight = 0;
+        }
+
+        gameObject.position.y = this._area.height + addHeight;
+        this._area.addChild( gameObject );
+    }
+
     onEnable() {
         window.addEventListener("mouseup", this._bindOnUp, false);
         window.addEventListener("touchend", this._bindOnUp, false);
@@ -174,7 +184,7 @@ class Scroll extends ComponentBase {
             this._area.mask = mask;
         }
         else {
-            this._area.mask = maskObject.sprite;
+            this._area.mask = (maskObject as GameObject).getComponent<Sprite>('sprite').sprite;
             width = this._area.mask.width;
             height = this._area.mask.height;
         }

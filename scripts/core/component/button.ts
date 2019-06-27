@@ -155,6 +155,7 @@ class Button extends ComponentBase {
     }
 
     private onPointerUp(e) {
+
         if( !this._isOn ) return;
 
         if (this._isOver) {
@@ -181,6 +182,9 @@ class Button extends ComponentBase {
         this._isOver = true;
 
         if (this._isDown) return;
+        if( this.game.input.getPointer() ) {
+            return;
+        }
 
         this.spriteUpdate( _state.highlight );
         this.overCall && this.overCall();
