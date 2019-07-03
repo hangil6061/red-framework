@@ -11,7 +11,7 @@ class ToggleButton extends ComponentBase{
     private _isOn = true;
     private _isOver = false;
 
-    private _actionCall = null;
+    private _actionCall : (isActive : boolean)=>{} = null;
 
     private _bind : {name:string, bind}[] = [];
 

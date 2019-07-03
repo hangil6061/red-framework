@@ -210,9 +210,11 @@ class Button extends ComponentBase {
     public setOnOff( isOn : boolean ) {
         if( isOn ) {
             this.on();
+            this.onOffCall( true );
         }
         else {
             this.off();
+            this.onOffCall( false );
         }
 
         this._isOn = isOn;

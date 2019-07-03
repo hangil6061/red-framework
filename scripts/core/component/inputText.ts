@@ -36,6 +36,7 @@ class InputText extends ComponentBase {
         this.style.resize = 'none';
         this.style.outlineColor = '#000000';
         this.style.outlineWidth = '0px';
+        this.style.textAlign = 'center';
 
         this.element.style.display = "none";
     }
@@ -63,6 +64,7 @@ class InputText extends ComponentBase {
         this.pivot.y = jsonData.pivot.y;
         this.element.placeholder = jsonData.placeholder;
         this.style.color = '#' + jsonData.fontColor;
+        this.style.textAlign = jsonData.textAlign || 'left';
 
         if( this.element instanceof HTMLInputElement )
         {
