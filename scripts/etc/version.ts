@@ -1,4 +1,4 @@
-readTextFile( 'version.json', ( text )=>{
+readTextFile( 'version.json'  + '?v=' + Math.random(), ( text )=>{
     printVersion(JSON.parse(text));
 } );
 
