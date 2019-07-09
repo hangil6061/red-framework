@@ -110,6 +110,11 @@ class GameObject extends PIXI.Container {
         return comp || null;
     }
 
+    public getComponentByProto<T>( proto : any ) : T {
+        const name = ComponentManager.Instance.getComponentName( proto.name );
+        return this.getComponent<T>( name );
+    }
+
     public removeComponent( name : string ) {
         const comp = this.components[ name ];
         if( !comp ) return;

@@ -27,6 +27,8 @@ class ComponentManager {
     }
 
     private components : object = {};
+    private componentKeys : {[key:string]:string} = {};
+
     private constructor() {
         this.addComponent( 'sprite', Sprite );
         this.addComponent( 'script', Script );
@@ -48,8 +50,9 @@ class ComponentManager {
         this.addComponent( 'initText', InitText );
     }
 
-    addComponent( name : string, construct : object ) {
+    addComponent( name : string, construct : any ) {
         this.components[name] = construct;
+        this.componentKeys[ construct.name ] = name;
     }
 
     getComponent( name : string ) {
@@ -58,6 +61,10 @@ class ComponentManager {
             return construct;
         }
         return null;
+    }
+
+    getComponentName( protoName : string ) {
+        return this.componentKeys[protoName] || null;
     }
 }
 
