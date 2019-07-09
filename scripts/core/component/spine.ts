@@ -75,8 +75,12 @@ class Spine extends ComponentBase {
         this._spine.update( 0 );
     }
 
-    addAnimation( name ) {
-        this._spine.state.addAnimation(0, name, true, 0);
+    addAnimation( name, isLoop = true ) {
+        this._spine.state.addAnimation(0, name, isLoop, 0);
+    }
+
+    getAnimationName() {
+        return this._spine.state.tracks[0].animation.name;
     }
 }
 

@@ -4,7 +4,7 @@ import GameObject from "./gameObject";
 class SceneManager {
     public game : Game = null;
 
-    private _scenes = {};
+    private _scenes : {[key:string] : GameObject} = {};
     private _currentScene : GameObject = null;
     private _prevScene : GameObject = null;
 
@@ -27,6 +27,10 @@ class SceneManager {
         this._scenes[ key ] = scene;
         this.game.stage.scene.addChild( scene );
         scene.activeSelf = false;
+    }
+
+    public getScene( key : string ) : GameObject {
+        return this._scenes[ key ];
     }
 
     public changeScene( key : string, skipPrevSceneActive = false ) {
