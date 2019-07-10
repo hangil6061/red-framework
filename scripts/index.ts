@@ -36,6 +36,7 @@ import PaintArea from "./core/component/paintArea";
 import Gauge from './core/component/gauge';
 import MultiStyleText from './core/component/multiStyleText';
 import ButtonEvent from './core/component/buttonEvent';
+import InputText from './core/component/inputText';
 
 
 import KeyCode from './util/keyCode';
@@ -97,6 +98,7 @@ export {
     Gauge,
     MultiStyleText,
     ButtonEvent,
+    InputText,
 
     KeyCode,
     Stack,
@@ -158,6 +160,7 @@ export default {
     Gauge,
     MultiStyleText,
     ButtonEvent,
+    InputText,
 
     KeyCode,
     Stack,

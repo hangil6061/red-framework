@@ -16,6 +16,7 @@ import PaintArea from "./component/paintArea";
 import MultiStyleText from './component/multiStyleText';
 import ButtonEvent from './component/buttonEvent';
 import InitText from './component/initText';
+import {ButtonText} from "./component/buttonText";
 
 class ComponentManager {
     private static instance : ComponentManager = null;
@@ -48,6 +49,7 @@ class ComponentManager {
         this.addComponent( 'multiStyleText', MultiStyleText );
         this.addComponent( 'buttonEvent', ButtonEvent );
         this.addComponent( 'initText', InitText );
+        this.addComponent( 'buttonText', ButtonText );
     }
 
     addComponent( name : string, construct : any ) {

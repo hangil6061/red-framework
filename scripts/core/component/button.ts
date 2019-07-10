@@ -211,10 +211,12 @@ class Button extends ComponentBase {
         if( isOn ) {
             this.on();
             this.onOffCall && this.onOffCall( true );
+            this.event.emit( 'onEnable' );
         }
         else {
             this.off();
             this.onOffCall && this.onOffCall( false );
+            this.event.emit( 'onDisable' );
         }
 
         this._isOn = isOn;
