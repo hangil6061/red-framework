@@ -79,6 +79,20 @@ class Scroll extends ComponentBase {
         this._area.addChild( gameObject );
     }
 
+    clear() {
+        this._area.children.length = 0;
+        for( let i = 0; i < this._area.children.length; ) {
+            const go = this._area.children[i] as GameObject;
+            if( go ) {
+                this._area.removeChild( go );
+            }
+            else {
+                i++;
+            }
+        }
+        // this._area.updateTransform();
+    }
+
     onEnable() {
         window.addEventListener("mouseup", this._bindOnUp, false);
         window.addEventListener("touchend", this._bindOnUp, false);
