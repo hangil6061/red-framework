@@ -188,6 +188,7 @@ class Button extends ComponentBase {
 
         this.spriteUpdate( _state.highlight );
         this.overCall && this.overCall();
+        this.event.emit( 'onOver' );
     }
 
     private onPointerOut() {
@@ -198,6 +199,7 @@ class Button extends ComponentBase {
         this.spriteUpdate( _state.normal );
         this.normalCall && this.normalCall();
         this.outCall && this.outCall();
+        this.event.emit( 'onOut' );
     }
 
     public setTargetSprite( sprite : Sprite ) {
