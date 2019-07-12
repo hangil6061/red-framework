@@ -16,7 +16,7 @@ class TiledSprite extends ComponentBase {
         this.gameObject.addChild( this._sprite );
     }
 
-    get sprite() : PIXI.Sprite {
+    get sprite() : PIXI.extras.TilingSprite {
         return this._sprite;
     }
 
